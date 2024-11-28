@@ -1,30 +1,30 @@
 # Unit Test Specification Format
 
-Structure
-Given
- Sparse Lookup sources
-When
-Then
- Cluster keys
- Row count comparisons
- Excluding columns from unit tests
-Test Specification Types
-Test specification patterns
+- Structure
+- Given
+-  - Sparse Lookup sources
+- When
+- Then
+   - Cluster keys
+   - Row count comparisons
+   - Excluding columns from unit tests
+- Test Specification Types
+- Test specification patterns
 
 ## Structure
 
-A MettleCI Unit Test Specification (often abbreviated ‘Spec') is a YAML-formatted file which uses a grammar modelled loosely on the [Gherkin syntax](https://cucumber.io/docs/gherkin/) of a testing tool called Cucumber. The overall structure follows the Gherkin pattern …
+A DataStage test case specification (often abbreviated ‘Spec') is a YAML-formatted file which uses a grammar modelled loosely on the [Gherkin syntax](https://cucumber.io/docs/gherkin/) used by the Cucumber testing tool. The overall structure follows the common Gherkin pattern …
 
 ```
 given:
-  # This source of input data
+  # Use this input data as the source for the flow  
 when:
-  # The specified job is executed with these parameter values
+  # Execute the test case with these parameter values
 then:
-  # Expect the Job to produce data that looks like this
+  # Expect the flow to produce data that looks like this
 ```
 
-## Given
+## The 'given' section
 
 The given section defined a list of stage nodes (or sparseLookup nodes, see below) defining input links whose values you wish to replace with test data. 
 
@@ -62,7 +62,8 @@ The sparseLookup node specifies …
 * a path to the relevant CSV unit test data file, and
 * a list of key columns to be used for the sparse lookup.
 
-## When
+## The 'when' section
+
 The when node specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
 
 ```
@@ -74,7 +75,7 @@ when:
     paramStartKey: 100                       # Run the test using this value for the paramStartKey Job parameter
 ```
 
-## Then
+## The 'then' section
 
 The then section associates unit test data files with each of your Job’s input links. 
 
