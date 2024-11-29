@@ -37,7 +37,7 @@ jobs:
 #            dita -i document.ditamap -o out -f pdf --filter=filter1.ditaval
 
       - name: Upload DITA Output to a ZIP file
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dita-artifact
           path: 'docs-dita'
