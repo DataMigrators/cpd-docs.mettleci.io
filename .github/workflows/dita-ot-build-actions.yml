@@ -10,11 +10,21 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
-      - name: Build HTML5 + Bootstrap
+#      - name: Build HTML5
+#        uses: dita-ot/dita-ot-action@master
+#        with:
+#          plugins: |
+#            net.infotexture.dita-bootstrap
+#          input: document.ditamap
+#          transtype: html5
+#          output-path: docs-dita
+      - name: Build HTML5 using DITA-OT
         uses: dita-ot/dita-ot-action@master
         with:
-          plugins: |
-            net.infotexture.dita-bootstrap
+          plugins : |
+            https://github.com/jason-fox/fox.jason.extend.css/archive/master.zip
+            org.jung.xmltask
+            com.oxygenxml.json.dita
           input: document.ditamap
           transtype: html5
           output-path: docs-dita
