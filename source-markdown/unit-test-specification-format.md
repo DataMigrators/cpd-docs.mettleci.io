@@ -1,17 +1,18 @@
 # Unit Test Specification Format
 
-- Structure
-- Given
+- [Structure](#structure)
+- [Given](#given)
 -  - Sparse Lookup sources
-- When
-- Then
-   - Cluster keys
+- [When](#when)
+- [Then](#then)
+   - [Cluster keys](#cluster-keys)
    - Row count comparisons
    - Excluding columns from unit tests
 - Test Specification Types
 - Test specification patterns
 
 ## Structure
+<a href="structure"></a>
 
 A DataStage test case specification (often abbreviated ‘Spec') is a YAML-formatted file which uses a grammar modelled loosely on the [Gherkin syntax](https://cucumber.io/docs/gherkin/) used by the Cucumber testing tool. The overall structure follows the common Gherkin pattern …
 
@@ -24,9 +25,10 @@ then:
   # Expect the flow to produce data that looks like this
 ```
 
-## The 'given' section
+## Given
+<a href="given"></a>
 
-The given section defined a list of stage nodes (or sparseLookup nodes, see below) defining input links whose values you wish to replace with test data. 
+The **given** section defined a list of stage nodes (or sparseLookup nodes, see below) defining input links whose values you wish to replace with test data. 
 
 ```
 given:
@@ -62,22 +64,24 @@ The sparseLookup node specifies …
 * a path to the relevant CSV unit test data file, and
 * a list of key columns to be used for the sparse lookup.
 
-## The 'when' section
+## When
+<a href="when"></a>
 
-The when node specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
+The **when** node specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
 
 ```
 when:
-  job: KeyGeneratorExample                   # The DataStage Job with which this test spec is associated 
+  job: KeyGeneratorExample                   # The DataStage flow with which this test spec is associated 
   parameters:
     DSJobStartDate: 2012-01-15               # Run the test using this value for the DSJobStartDate macro
     DSJobStartTime: 11:05:01                 # Run the test using this value for the DSJobStartTime macro 
     paramStartKey: 100                       # Run the test using this value for the paramStartKey Job parameter
 ```
 
-## The 'then' section
+## Then
+<a href="then"></a>
 
-The then section associates unit test data files with each of your Job’s input links. 
+The **then** section associates unit test data files with each of your flow's input links. 
 
 ```
 then:
@@ -93,13 +97,16 @@ then:
       - TYPE_CODE
 ```
 
-Similar to the **Given** section, each link in the **Then** section is specified using a combination of  stage and link nodes (to uniquely identify an outgoing link which produces data from your Job) and a path node to identify the test data CSV file containing the test data that is to be injected on that incoming link.
+Similar to the **Given** section, each link in the **Then** section is specified using a combination of  stage and link nodes (to uniquely identify an outgoing link which produces data from your flow) and a path node to identify the test data CSV file containing the test data that is to be injected on that incoming link.
 
 ### Cluster keys
+<a href="cluster-keys"></a>
+
 
 The cluster node is used to assist DataStage's resource management when using high volumes of test data.  Setting a **Cluster Key** will prompt DataStage to split the actual output and expected output using multiple, smaller subsets (based on the supplied keys) before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  In general, Cluster Keys should only be used when necessary and not specified by default. Read more about the using the cluster node in [High Volume Unit Tests](high-volume-unit-tests.md).
 
 ### Row count comparisons
+<a href="row-count-comparisons"></a>
 
 You can configure as test to only compare output row counts, rather than the content of those rows, by setting the **checkRowCountOnly** node to true.
 
@@ -127,154 +134,20 @@ then:
       - LAST_UPDATED
 ```
 
-**See this page for more information.**
-
-## Test Specification Types
- 
-
-Job Run Mode
-
-Test Specification
-
- 
-
-Description
-
-‘Given’ section
-
-'When' section
-
-‘Then’ section
-
-Normal
-
- 
-
-Ignored
-
-Job is executed normally with no MettleCI test harness intervention.
-
-Unit Test Interception
-
- 
-
-✅ Specified
-
-✅ Specified
-
-✅ Specified
-
-Interception is executed normally:
-
-expected output is captured to the specified output files
-
-source data references are irrelevant in this Job run mode.
-
- 
-
-∅ Unspecified
-
-✅ Specified
-
-✅ Specified
-
-Sources are accessed without change and Job output is compared to specified Expected result.
-
- 
-
-⛔️ Specifies non-existent files
-
-✅ Specified
-
-✅ Specified
-
-Causes test execution failure.
-
- 
-
-✅ Specified
-
-✅ Specified
-
-∅ Unspecified
-
-Causes test execution failure as there are no value Expected results to test against, so this is not a valid test.
-
- 
-
-✅ Specified
-
-✅ Specified
-
-⛔️ Specifies non-existent files
-
-Re-baseline’s expected test output. See Capturing a Baseline Test Result.
-
-Unit Test Execution
-
- 
-
-✅ Supplied
-
-✅ Supplied
-
-✅ Supplied
-
-Test is executed normally.
-
- 
-
-∅ Unspecified
-
-✅ Supplied
-
-✅ Supplied
-
-No input test data specified so the Job’s normal input operations are permitted to read from upstream data sources.  Output is compared to an expected output test data file. See an example here.
-
- 
-
-⛔️ Specifies non-existent files
-
-✅ Specified
-
-✅ Specified
-
-Test fails to execute and Job aborts.
-
- 
-
-✅ Supplied
-
-✅ Supplied
-
-∅ Unspecified
-
-Input test data is injected into your jobs but no output test data is supplied for comparison so the Job’s normal output operations are permitted to write to downstream data stores.  No output comparison is performed.
-
- 
-
-✅ Specified
-
-✅ Specified
-
-⛔️ Specifies non-existent files
-
-Test fails to execute and Job aborts.
 
 ## Test specification patterns
+<a href="test-specification-patterns"></a>
 
-Most DataStage jobs can be tested via MettleCI’s Unit Testing function simply by replacing input and output stages. However, some job designs - while commonplace - will necessitate a more advanced Unit Testing configuration. The sections below outline MettleCI Unit Test Spec patterns that best match these job designs.
+Most DataStage flows can be tested simply by replacing input and output stages. However some flow designs may necessitate a more advanced testing configuration. The sections below outline DataStage test specification patterns that best match these job designs.
 
- 
+* [Testing stages with reject links]()
+* [Testing Stored Procedure Stages]()
+* [Testing Surrogate Key Generator Stages]()
+* [Testing Sparse Lookup Stages]()
+* [Testing Jobs with current date calculations]()
+* [Tests featuring Local and Shared Containers]()
 
-* Unit Testing Stages with Rejects
-* Unit Testing Stored Procedure Stages
-* Unit Testing Surrogate Key Generator Stages
-* Unit Testing Sparse Lookup Stages
-* Unit Testing Jobs with current date calculations
-* High Volume Unit Tests
-* Creating and Running Multiple Unit Tests for a Single Job
-* Unit Tests featuring Local and Shared Containers
-* TO DO - Unit Testing Information Services Director Stages * 🔓
-* TO DO - Unit Testing Slowly Changing Dimension Stages 🔒
+See also:
+
+* [High volume Unit Tests](high-volume-unit-tests.md)
+
