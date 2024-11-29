@@ -16,7 +16,7 @@ jobs:
           plugins: |
             net.infotexture.dita-bootstrap
           input: document.ditamap
-          transtype: html5-bootstrap
+          transtype: html5
           output-path: docs-dita
 
 #      - name: Build PDF
