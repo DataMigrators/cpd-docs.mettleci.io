@@ -1,4 +1,4 @@
-# High Volume Unit Tests
+# High Volume DataStage Tests
 
 During the execution of a DataStage test case the data produced by a job (on one or more output links) is compared against expected test data to identify and report on any differences.
 
@@ -6,7 +6,7 @@ When testing with large volumes of data, the comparison process may consume too 
 
 In the event that test data available to you cannot easily be reduced, the memory required by the data comparison process can be reduced by specifying a Cluster Key (based on one or more columns) in the test specification.
 
-## Using Cluster Keys in Unit Tests
+## Using Cluster Keys in DataStage Tests
 
 Setting a Cluster Key will prompt DataStage to split the actual data output and expected data into multiple, smaller subsets before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  The data are then sorted and a comparison of actual and expected data is performed using multiple, smaller operations which require less memory and are performed sequentially.  
 
@@ -19,18 +19,18 @@ A good Cluster Key is one that results in data subsets which strike a balance be
 
 Selecting an appropriate Cluster Key might require several iterations to find a column (or combination of columns) which not only prevents Job aborts but also keeps run times acceptable.  Unless you are comparing unusually wide records, a good starting point is to aim for each subset of data to contain no more than 1,000 records and adjust the Cluster Key if memory thresholds continue to be breached.
 
-> If you have used Interception to capture some input and / or expected test data for a Unit Test and subsequently decide you want to apply a Cluster Key, you don’t have to re-run Interception. This is also the case if you’ve manually created any test data files. The Cluster Key is used at run time and therefore doesn’t require any additional data preparation by the user.
+> If you have used Interception to capture some input and / or expected test data for a DataStage Test and subsequently decide you want to apply a Cluster Key, you don’t have to re-run Interception. This is also the case if you’ve manually created any test data files. The Cluster Key is used at run time and therefore doesn’t require any additional data preparation by the user.
 
 ## Example
 
-Consider the situation where a DataStage Test has to compare several million financial transaction records with the following schema:
+Consider the situation where a DataStage Test has to compare several million financial transaction records with the following schema on the 'order_out' link of stage 'ODBC_order':
 
 | Column name      | SQL type  | Length | Scale | Nullable |
 |------------------|-----------|--------|-------|----------|
 | Transaction_Date | Timestamp |        |       | No       |
 | Account_Id       | VarChar   |     20 |       | No       |
 | Type_Code        | VarChar   |      5 |       | No       |
-| Description      | VarChar   |        |       | Yes       |
+| Description      | VarChar   |        |       | Yes      |
 | Amount           | Decimal   |     18 |     2 | No       |
 
 The test specification can be updated with a Cluster Key to enable iterative comparison of actual and expected test data.  In this example, `Account_Id` and `Type_Code` are defined as the compound Cluster Key:
@@ -52,20 +52,18 @@ The test specification can be updated with a Cluster Key to enable iterative com
 }
 ```
 
-
-Note that Cluster Keys are specified on a per-link basis. DataStage flows with multiple output links can use any combination of clustered and non-clustered comparisons within a single Test Specification.
+**Note**: Cluster Keys are specified on a per-link basis. DataStage flows with multiple output links can use any combination of clustered and non-clustered comparisons within a single test specification.
 
 ### Caveats
 
 Cluster keys should be chosen to break Actual and Expected data into clusters which are small enough to fit in memory. 
 
-Note that if a Unit Test detects a value difference in a column which is a cluster key column, then the Unit Test difference report (which would normally describe the difference as a ‘modified’ row when not using a cluster key) will now describe the difference as distinct ‘added’ and ‘removed’ entries.  
+Note that if a Unit Test detects a value difference in a column which is a cluster key column, then the Unit Test difference report (which would normally describe the difference as a ***‘modified’*** row when not using a cluster key) will now describe the difference as distinct ***‘added’*** and ***‘removed’*** entries.  
 
-As useful as Cluster Keys are, it’s poor practice to simply apply them to every DataStage Unit Test that has to process high data volumes. You will almost certainly find combinations of Jobs and data volumes in your Project where no Cluster Key will reduce the memory demands of a Unit Test enough to avoid Job aborts (See Unit Test throws OutOfMemoryError exception). In these situations you can manage your test data volumes by …
+As useful as Cluster Keys are, it’s poor practice to simply apply them to every DataStage Test that has to process high data volumes. You will almost certainly find combinations of flows and data volumes in your Project where no Cluster Key will reduce the memory demands of a DataStage test enough to avoid Job aborts **(See Unit Test throws OutOfMemoryError exception)**. In these situations you can manage your test data volumes by …
 
 * carefully selecting a subset of records from your data sources,
-* using the MettleCI Workbench’s built-in data fabrication feature, or 
+* using the DataStage's data fabrication features, or 
 * both of these approaches in combination.
 
-While it is fair to say every DataStage developer will, at some point, face the challenge of having to run DataStage Unit Tests where the only data sources available are full volume, a growing need to use Cluster Keys ought to prompt a realistic discussion about the sustainability of your organisation’s test data management practices. Data Migrators are always happy to help MettleCI customers consider options and solutions for effective and repeatable test data sub-setting and masking.
-
+# While it is fair to say every DataStage developer will, at some point, face the challenge of having to run DataStage Unit Tests where the only data sources available are full volume, a growing need to use Cluster Keys ought to prompt a realistic discussion about the sustainability of your organisation’s test data management practices. Data Migrators are always happy to help MettleCI customers consider options and solutions for effective and repeatable test data sub-setting and masking.
