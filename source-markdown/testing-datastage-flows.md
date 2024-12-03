@@ -1,16 +1,16 @@
 # Unit Testing DataStage flows
 
-1. [Creating a DataStage test case](creating-a-datastage-test-case)
-1. [Managing DataStage test data](managing-datastage-test-data)
-1. [Executing a DataStage test](executing-a-datastage-test-case)
+1. [Creating a DataStage test case](creating-a-datastage-test-case.md)
+1. [Managing DataStage test data](managing-datastage-test-data.md)
+1. [Executing a DataStage test](executing-a-datastage-test-case.md)
 
 * Authoring test data
 * Fabricating test data
 * Capturing test data
 
 
-[DataStage testing concepts](datastage-testing-concepts)
-[Building tests with high data volumes](high-volume-tests)
-[The DataStage test specification format](test-specification-format)
-[](testing-datastage-flows)
+[DataStage testing concepts](datastage-testing-concepts.md)
+[Building tests with high data volumes](high-volume-tests.md)
+[The DataStage test specification format](test-specification-format.md)
+[Testing DataStage flows](testing-datastage-flows.md)
 

@@ -95,28 +95,19 @@ The `sparseLookup` node specifies …
 The **when** node specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
 
 ```
-when:
-  job: KeyGeneratorExample                   # The DataStage flow with which this test spec is associated 
-  parameters:
-    DSJobStartDate: 2012-01-15               # Run the test using this value for the DSJobStartDate macro
-    DSJobStartTime: 11:05:01                 # Run the test using this value for the DSJobStartTime macro 
-    paramStartKey: 100                       # Run the test using this value for the paramStartKey Job parameter
-```
-
-```
-{   ...
+{   …
     "when": {
-        "data_intg_flow_ref": "3023970f-ba2dfb02bd3a",
+        # An internally-generated reference to the flow with which this test is associated
+        "data_intg_flow_ref": "3023970f-ba2dfb02bd3a",  
         "parameters": {
-            "DSJobStartDate": "2012-01-15               # Run the test using this value for the DSJobStartDate macro
-            DSJobStartTime: 11:05:01                 # Run the test using this value for the DSJobStartTime macro 
-            paramStartKey: 100                       # Run the test using this value for the paramStartKey Job parameter
+            "DSJobStartDate": "2012-01-15"   # Run the test using this value for the DSJobStartDate macro
+            "DSJobStartTime": "11:05:01"     # Run the test using this value for the DSJobStartTime macro 
+            "paramStartKey": "100"           # Run the test using this value for the paramStartKey parameter
         }
     },
-    ...
+    …
 }
 ```
-
 
 ## Then <a href="then"></a>
 
@@ -134,46 +125,89 @@ then:
     cluster:
       - ACCOUNT_ID
       - TYPE_CODE
+
+
+{   …
+    "then": [
+        {
+            "path": "ODBC_customers.csv",
+            "stage": "ODBC_customer",
+            "link": "customer_out"
+        },
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out"
+        }
+    ],
+    …
+}
 ```
 
 Similar to the **Given** section, each link in the **Then** section is specified using a combination of  stage and link nodes (to uniquely identify an outgoing link which produces data from your flow) and a path node to identify the test data CSV file containing the test data that is to be injected on that incoming link.
 
 ### Cluster keys <a href="cluster-keys"></a>
 
-
 The cluster node is used to assist DataStage's resource management when using high volumes of test data.  Setting a **Cluster Key** will prompt DataStage to split the actual output and expected output using multiple, smaller subsets (based on the supplied keys) before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  In general, Cluster Keys should only be used when necessary and not specified by default. Read more about the using the cluster node in [High Volume Unit Tests](high-volume-unit-tests.md).
+
+```
+{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "cluster": [
+                "Account_Id",
+                "Type_Code"
+            ]
+        }
+    ],
+    …
+}
+```
 
 ### Row count comparisons <a href="row-count-comparisons"></a>
 
 You can configure as test to only compare output row counts, rather than the content of those rows, by setting the **checkRowCountOnly** node to true.
 
 ```
-then:
-  - stage: Output
-    link: Write1
-    path: Output-Write1.csv
-    checkRowCountOnly: true
+{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "checkRowCountOnly": "true"
+        }
+    ],
+    …
+}
 ```
 
-**See this page for more information.**
-
-### Excluding columns from unit tests <a href="#excluding-columns-from-tests"></a>
+### Excluding columns from tests <a href="excluding-columns-from-tests"></a>
 
 You can omit selected columns from the output comparison by listing them under an ignore node for the relevant output.
 
 ```
-then:
-  - stage: Transform
-    link: Output
-    path: Transform-Output.csv
-    ignore: 
-      - CREATION_DATE
-      - LAST_UPDATED
+{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "ignore": [
+                "Creation_date",
+                "Last_updated"
+            ]
+        }
+    ],
+    …
+}
 ```
 
 
-## Test specification patterns
-<a href="test-specification-patterns"></a>
+## Test specification patterns <a href="test-specification-patterns"></a>
 
 Most DataStage flows can be tested simply by replacing input and output stages. However some flow designs may necessitate a more advanced testing configuration. The sections below outline DataStage test specification patterns that best match these job designs.
 
