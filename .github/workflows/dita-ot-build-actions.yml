@@ -10,29 +10,13 @@ jobs:
     steps:
       - name: Git checkout
         uses: actions/checkout@v2
+
       - name: Build DITA using DITA-OT
         uses: dita-ot/dita-ot-action@master
         with:
-          input: source-markdown/high-volume-unit-tests.md
+          input: source-markdown/*.md
           transtype: dita
           output-path: docs-dita
-
-#      - name: Build PDF
-#        uses: dita-ot/dita-ot-action@master
-#        with:
-#          install: |
-#            # Run some arbitrary installation commands
-#            apt-get update -q
-#            apt-get install -qy --no-install-recommends nodejs
-#            nodejs -v
-#
-#            # Install plugins
-#            dita install fox.jason.extend.css
-#            dita install org.doctales.xmltask
-#            dita install fox.jason.prismjs
-#          build: |
-#            # Use the dita command line
-#            dita -i document.ditamap -o out -f pdf --filter=filter1.ditaval
 
       - name: Upload DITA Output to a ZIP file
         uses: actions/upload-artifact@v4
