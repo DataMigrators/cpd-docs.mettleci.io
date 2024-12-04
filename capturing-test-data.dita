@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="capturing-test-datamd"><title>capturing-test-data.md</title><body><fig><title>test baseline screen capture</title><image href="images/ds-test-case-capture.png"><alt>representation of a DataStage job showing CSV files being injected into source stages and an output stage referngin a CSV file which does not exist</alt></image></fig></body></topic>
