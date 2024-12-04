@@ -14,7 +14,7 @@ jobs:
       - name: Build DITA using DITA-OT
         uses: dita-ot/dita-ot-action@master
         with:
-          input: source-markdown/*.md
+          input: document.ditmap
           transtype: dita
           output-path: docs-dita
 

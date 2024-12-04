@@ -59,7 +59,7 @@ For example:
 
 Some source stages can be configured with multiple output links so each input in your test specification's `given` property array is uniqely identified using a combination of the stage and link names to eliminate ambiguity.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
 
-### Sparse Lookup sources <a href="sparse-l ookup-sources"></a>
+### Sparse Lookup sources <a href="sparse-lookup-sources"></a>
 
 When an input source is used with a Sparse Lookup stage then rather than using the stage property to specify the input you will use the `sparseLookup` property.
 
@@ -205,11 +205,11 @@ You can omit selected columns from the output comparison by listing them in an `
 Most DataStage flows can be tested simply by replacing input and output stages. However some flow designs may necessitate a more advanced testing configuration. The sections below outline DataStage test specification patterns that best match these job designs.
 
 * [Testing stages with reject links](testing-stages-with-reject-links.md)
-* [Testing Stored Procedure Stages]()
-* [Testing Surrogate Key Generator Stages]()
-* [Testing Sparse Lookup Stages]()
-* [Testing Jobs with current date calculations]()
-* [Tests featuring Local and Shared Containers]()
+* Testing Stored Procedure Stages
+* Testing Surrogate Key Generator Stages
+* Testing Sparse Lookup Stages
+* Testing Jobs with current date calculations
+* Tests featuring Local and Shared Containers
 
 See also:
 

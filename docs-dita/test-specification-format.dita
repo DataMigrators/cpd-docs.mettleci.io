@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+  PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="datastage-test-specification-format"><title>DataStage test specification format</title><body><ul><li><xref href="test-specification-format.dita#structure">Structure</xref></li><li><xref href="test-specification-format.dita#given">Given</xref></li><li><ul><li><xref href="test-specification-format.dita#sparse-lookup-sources">Sparse Lookup sources</xref></li></ul></li><li><xref href="test-specification-format.dita#when">When</xref></li><li><xref href="test-specification-format.dita#then">Then</xref><ul><li><xref href="test-specification-format.dita#cluster-keys">Cluster keys</xref></li><li><xref href="test-specification-format.dita#row-count-comparisons">Row count comparisons</xref></li><li><xref href="test-specification-format.dita#excluding-columns-from-tests">Excluding columns from tests</xref></li></ul></li><li><xref href="test-specification-format.dita#test-specification-patterns">Test specification patterns</xref></li></ul></body><topic id="structure-"><title>Structure <xref format="html" href="structure"/></title><body><p>A DataStage test case specification (often abbreviated ‘Spec') is a JSON-formatted file which uses a grammar modelled loosely on the <xref href="https://cucumber.io/docs/gherkin/" format="html" scope="external">Gherkin syntax</xref> used by the Cucumber testing tool. The overall structure follows the common Gherkin pattern …</p><codeblock>{
+    "given": [
+        { # Inject this test data file into stageA.linkA },
+        { # Inject this test data file into stageB.linkB },
+        { # etc. }
+    ],
+    "when": {
+        # Execute the test case with these options and parameter values
+    },
+    "then": [
+        { # Expect flow output on stageX.linkX to look like this test data file },
+        { # Expect flow output on stageY.linkY to look like this test data file },
+        { # etc. }
+    ],
+}</codeblock><p><i><b>Note:</b></i> The user interface may order the JSON objects alphabetically (<codeph>given</codeph> &gt; <codeph>then</codeph> &gt; <codeph>when</codeph>) but this has no effect on the functionality of the test.</p></body></topic><topic id="given-"><title>Given <xref format="html" href="given"/></title><body><p>The <codeph>given</codeph> property array associates test data files with your flow's input , thereby defining the test values you wish to inject into your flow's inputs at runtime.</p><p>For example:</p><codeblock>{   …
+    "given": [
+        {
+            "path": "fileCustomers.csv",
+            "stage": "sfCustomers",
+            "link": "Customers" 
+        },
+        {
+            "path": "fileOrders.csv",
+            "stage": "sfOrders",
+            "link": "Orders"
+        }
+    ],
+    …
+}</codeblock><p>Some source stages can be configured with multiple output links so each input in your test specification's <codeph>given</codeph> property array is uniqely identified using a combination of the stage and link names to eliminate ambiguity.  The array also contains a <codeph>path</codeph> property to identify the test data CSV file containing the test data that is to be injected on each incoming link.</p></body><topic id="sparse-lookup-sources-"><title>Sparse Lookup sources <xref format="html" href="sparse-lookup-sources"/></title><body><p>When an input source is used with a Sparse Lookup stage then rather than using the stage property to specify the input you will use the <codeph>sparseLookup</codeph> property.</p><p>For example:</p><codeblock>{   …
+    "given": [
+        {
+            "path": "fileCustomers.csv",
+            "stage": "sfCustomers",
+            "link": "Customers" 
+        },
+        {
+            "sparseLookup": "SparseLookup",
+            "path": "Database-Reference.csv",
+            "key": [
+                "KEY_COLUMN_1",
+                "KEY_COLUMN_2"
+            ]
+        }
+    ],
+    …
+}</codeblock><p>The <codeph>sparseLookup</codeph> property identifies a JSON object which specifies …</p><ul><li>the value defining the name of the sparse lookup reference stage,</li><li>a path to the relevant CSV test data file, and</li><li>a list of key columns to be used for the sparse lookup.</li></ul></body></topic></topic><topic id="when-"><title>When <xref format="html" href="when"/></title><body><p>The <codeph>when</codeph> property array specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.</p><p>For example, this specification will</p><p>Substitute hardcoded values for the <codeph>DSJobStartDate</codeph> and <codeph>DSJobStartTime</codeph> macros and the <codeph>paramStartKey</codeph> parameter:</p><codeblock>{   …
+    "when": {
+        # An internally-generated reference to the flow with which this test is associated
+        "data_intg_flow_ref": "3023970f-ba2dfb02bd3a",  
+        "parameters": {
+            "DSJobStartDate": "2012-01-15"
+            "DSJobStartTime": "11:05:01"
+            "paramStartKey": "100"
+        }
+    },
+    …
+}</codeblock></body></topic><topic id="then-"><title>Then <xref format="html" href="then"/></title><body><p>The <codeph>then</codeph> property array associates test data files with your flow's output links.</p><p>For example:</p><codeblock>{   …
+    "then": [
+        {
+            "path": "ODBC_customers.csv",
+            "stage": "ODBC_customer",
+            "link": "customer_out"
+        },
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out"
+        }
+    ],
+    …
+}</codeblock><p>Similar to the <codeph>Given</codeph> property, because some target stages can be configured with multiple input links the test specification's <codeph>then</codeph> property array uniqely identifies links using a combination of the stage and link names.  The array also contains a <codeph>path</codeph> property to identify the test data CSV file containing the test data that is to be injected on each incoming link.</p></body><topic id="cluster-keys-"><title>Cluster keys <xref format="html" href="cluster-keys"/></title><body><p>The <codeph>cluster</codeph> property is used to assist DataStage's resource management when using high volumes of test data.  Setting a <b>Cluster Key</b> will prompt DataStage to split the actual output and expected output using multiple, smaller subsets (based on the supplied keys) before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  In general, Cluster Keys should only be used when necessary and not specified by default. Read more about the using the cluster property in <xref href="high-volume-tests.dita" type="topic">high volume tests</xref>.</p><codeblock>{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "cluster": [
+                "Account_Id",
+                "Type_Code"
+            ]
+        }
+    ],
+    …
+}</codeblock></body></topic><topic id="row-count-comparisons-"><title>Row count comparisons <xref format="html" href="row-count-comparisons"/></title><body><p>You can configure a test to only compare outputs' row counts, rather than the content of those rows, by setting the <codeph>checkRowCountOnly</codeph> property to true.</p><codeblock>{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "checkRowCountOnly": "true"
+        }
+    ],
+    …
+}</codeblock></body></topic><topic id="excluding-columns-from-tests-"><title>Excluding columns from tests <xref format="html" href="excluding-columns-from-tests"/></title><body><p>You can omit selected columns from the output comparison by listing them in an <codeph>ignore</codeph> property array for the relevant output.</p><codeblock>{   …
+    "then": [
+        {
+            "path": "ODBC_orders.csv",
+            "stage": "ODBC_order",
+            "link": "order_out",
+            "ignore": [
+                "Creation_date",
+                "Last_updated"
+            ]
+        }
+    ],
+    …
+}</codeblock></body></topic></topic><topic id="test-specification-patterns-"><title>Test specification patterns <xref format="html" href="test-specification-patterns"/></title><body><p>Most DataStage flows can be tested simply by replacing input and output stages. However some flow designs may necessitate a more advanced testing configuration. The sections below outline DataStage test specification patterns that best match these job designs.</p><ul><li><xref href="testing-stages-with-reject-links.dita" type="topic">Testing stages with reject links</xref></li><li>Testing Stored Procedure Stages</li><li>Testing Surrogate Key Generator Stages</li><li>Testing Sparse Lookup Stages</li><li>Testing Jobs with current date calculations</li><li>Tests featuring Local and Shared Containers</li></ul><p>See also:</p><ul><li><xref href="high-volume-tests.dita" type="topic">High volume Tests</xref></li></ul><ul><li><xref href="test-specification-format.dita#test-specification-types">Test Specification Types</xref></li><li><xref href="test-specification-format.dita#test-specification-patterns">Test specification patterns</xref></li></ul></body></topic></topic>

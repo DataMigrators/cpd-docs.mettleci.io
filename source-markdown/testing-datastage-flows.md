@@ -1,14 +1,13 @@
 # Testing DataStage flows
 
-## Introduction
+DataStage® test cases are design-time assets that use data files to define the inputs and expected outputs of your DataStage flows.
 
-Unit tests can be created for individual jobs using the the DataStage user interface.  When DataStage creates a test case it performs the following steps:
+The basic building blocks of a test case are:
+* A test specification
+* One or more test data input files
+* One or more test data output files
 
-1. Interrogate your flow design to identify all source and target stages.
-1. Read the metadata definition of each source stage input link and target stage output link (i.e. all data flowing into and out of your flow).  Note that each source stage may be configured with multiple output links, and each target stage may be configured with multiple input links.
-1. Create an empty test case data file for each source and target link, with appropriate metadata definitions. 
-1. Interrogate your flow's parameters.
-1. Create a test case specification which provides references to all of your flow's parameters as well as each newly-created test data file.
+Each DataStage test case is associated with a single DataStage flow. You can create DataStage test cases from the Asset browser or directly from within the DataStage designer canvas.  A DataStage test case is executed by a job in a mananer similar to its associated DataStage flow. During execution the input data files are injected into your flow's incoming links and the data appearing on the output links are compared to the output files containing the expected outputs. Any differences in the two will cause the test to fail and the differences to be reported alongside the test case's job log.  
 
 ## Using DataStage test cases
 

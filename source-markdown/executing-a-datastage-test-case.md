@@ -1,6 +1,15 @@
 # Executing a DataStage test case
 
-You can exeute DataStage test cases either from the Asset browser or directly from within the DataStage designer canvas.
+When DataStage executes your test case it will dynamically replace your flow's input stages at runtime with components which inject data from the relevant CSV data files into your job on the links specified in [your test specification](test-specification-format.md).  Any source data repositories (files, databases, etc.) included in your test specification will not be connected to or read during a test case execution.
+
+Similarly, your flow's output stage(s) will be replaced at runtime 
+
+![screen capture](./images/ds-test-case-execution.png "test screen capture")
+
+
+## Step by step
+
+You can execute DataStage test cases either from the Asset browser or directly from within the DataStage designer canvas.
 
 **From the asset browser**
 1. Open an existing project project.

@@ -19,8 +19,24 @@ This will bring you to the test case editor which suports the following function
 
 
 
-# Editing metadata <a href="editing-metadata"></a>
+## Editing metadata <a href="editing-metadata"></a>
 
 
+
+## Downloading a test case
+
+
+
+
+## Settings
+
+Test case job settings
+
+**History record storage** allows you to specify how much test case job run history you wich to retain. This can be specified either byt the number of days or the number of runs.
+
+
+**Schedule** allows you top specify a time and date when you want your test case job to be automaticaly executed and (optionally) the frequency with which the job should be re-executed.
+
+Click **Save** to record your selections.
 
 
