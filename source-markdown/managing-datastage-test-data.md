@@ -14,3 +14,9 @@ You can edit DataStage test cases either from the Asset browser or directly from
 
 ## Learn more
 <a href="learn-more"></a>
+
+
+
+* Authoring test data
+* Fabricating test data
+* Capturing test data

@@ -65,5 +65,3 @@ As useful as Cluster Keys are, it’s poor practice to simply apply them to ever
 * carefully selecting a subset of records from your data sources,
 * using the DataStage's data fabrication features, or 
 * both of these approaches in combination.
-
-# While it is fair to say every DataStage developer will, at some point, face the challenge of having to run DataStage Unit Tests where the only data sources available are full volume, a growing need to use Cluster Keys ought to prompt a realistic discussion about the sustainability of your organisation’s test data management practices. Data Migrators are always happy to help MettleCI customers consider options and solutions for effective and repeatable test data sub-setting and masking.

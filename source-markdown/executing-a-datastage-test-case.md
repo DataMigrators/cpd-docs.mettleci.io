@@ -10,7 +10,7 @@ You can exeute DataStage test cases either from the Asset browser or directly fr
 **From the DataStage canvas**
 1. Open an existing DataStage flow.
 1. Click the **Test cases** icon to open up the test cases side panel.
-1. Click the name of the test case you wish to invoke.
+1. Click the run icon alongside the name of the test case you wish to invoke.
 
 This will bring you to the test case editor which suports the following functions:
 
