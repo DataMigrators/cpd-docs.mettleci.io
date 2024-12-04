@@ -20,6 +20,7 @@ Unit tests can be created for individual jobs using the the DataStage user inter
 ## See also
 
 * [DataStage testing concepts](datastage-testing-concepts.md)
+* [Migrating DataStage tests from older versions](migrating-datastage-tests-from-older-versions.md)
 * [Building tests with high data volumes](high-volume-tests.md)
 * [The DataStage test specification format](test-specification-format.md)
 * [Testing DataStage flows](testing-datastage-flows.md)
