@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map
   PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
-<map cascade="merge"><title>DataStage test cases</title><topicref href="testing-datastage-flows.dita"><topicmeta/><topicref href="dita_technical_committee.dita"><topicmeta/></topicref><topicref href="dita_adoption_technical_committee.dita"><topicmeta/></topicref></topicref><topicref href="testing-datastage-flows.dita"><topicmeta/><topicref href="dita_technical_committee.dita"><topicmeta/></topicref><topicref href="dita_adoption_technical_committee.dita"><topicmeta/></topicref></topicref></map>
+<map cascade="merge"><title>DataStage test cases</title><topicref href="testing-datastage-flows.dita"><topicmeta/><topicref href="creating-a-datastage-test-case.dita"><topicmeta/></topicref><topicref href="editing-a-datastage-test.dita"><topicmeta/></topicref><topicref href="managing-datastage-test-data.dita"><topicmeta/></topicref><topicref href="executing-a-datastage-test.dita"><topicmeta/></topicref></topicref></map>
