@@ -36,21 +36,21 @@ A DataStage test case specification (often abbreviated ‘Spec') is a JSON-forma
 
 ## Given <a href="given"></a>
 
-The `given` property array associates unit test data files with your flow's input , thereby defining the test values you wish to inject into your flow's inputs at runtime.
+The `given` property array associates test data files with your flow's input , thereby defining the test values you wish to inject into your flow's inputs at runtime.
 
 For example:
 ```
 {   …
     "given": [
         {
-            "path": "Sequential_File_1.csv",        # Inject the contents of file SeqFile_1.csv into ...
-            "stage": "My_First_Seq_File",    # stage My_Second_Sequential_File's ...
-            "link": "FirstLink"                    # outgoing link FirstLink. 
+            "path": "fileCustomers.csv",
+            "stage": "sfCustomers",
+            "link": "Customers" 
         },
         {
-            "path": "SeqFile_2.csv",                # Inject the contents of file SeqFile_2.csv into ...
-            "stage": "My_Second_Seq_File",   # stage My_Second_Sequential_File's ...
-            "link": "SecondLink"                   # outgoing link SecondLink.
+            "path": "fileOrders.csv",
+            "stage": "sfOrders",
+            "link": "Orders"
         }
     ],
     …
@@ -68,9 +68,9 @@ For example:
 {   …
     "given": [
         {
-            "path": "Sequential_File.csv",
-            "stage": "Some_Sequential_File",
-            "link": "Some_Link"
+            "path": "fileCustomers.csv",
+            "stage": "sfCustomers",
+            "link": "Customers" 
         },
         {
             "sparseLookup": "SparseLookup",
@@ -95,16 +95,19 @@ The `sparseLookup` property identifies a JSON object which specifies …
 
 The `when` property array specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
 
-For example:
+For example, this specification will
+
+Substitute hardcoded values for the `DSJobStartDate` and `DSJobStartTime` macros and the `paramStartKey` parameter:
+
 ```
 {   …
     "when": {
         # An internally-generated reference to the flow with which this test is associated
         "data_intg_flow_ref": "3023970f-ba2dfb02bd3a",  
         "parameters": {
-            "DSJobStartDate": "2012-01-15"   # Run the test using this value for the DSJobStartDate macro
-            "DSJobStartTime": "11:05:01"     # Run the test using this value for the DSJobStartTime macro 
-            "paramStartKey": "100"           # Run the test using this value for the paramStartKey parameter
+            "DSJobStartDate": "2012-01-15"
+            "DSJobStartTime": "11:05:01"
+            "paramStartKey": "100"
         }
     },
     …
@@ -113,7 +116,7 @@ For example:
 
 ## Then <a href="then"></a>
 
-The `then` property array associates unit test data files with your flow's output links. 
+The `then` property array associates test data files with your flow's output links. 
 
 For example:
 ```
@@ -160,7 +163,7 @@ The `cluster` property is used to assist DataStage's resource management when us
 
 ### Row count comparisons <a href="row-count-comparisons"></a>
 
-You can configure as test to only compare output row counts, rather than the content of those rows, by setting the `checkRowCountOnly` property to true.
+You can configure a test to only compare outputs' row counts, rather than the content of those rows, by setting the `checkRowCountOnly` property to true.
 
 ```
 {   …
@@ -210,7 +213,7 @@ Most DataStage flows can be tested simply by replacing input and output stages. 
 
 See also:
 
-* [High volume Unit Tests](high-volume-unit-tests.md)
+* [High volume Tests](high-volume-tests.md)
 
 
 - [Test Specification Types](#test-specification-types)
