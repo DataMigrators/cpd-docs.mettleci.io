@@ -3,9 +3,11 @@
 <map>
   <title>DataStage test cases</title>
   <topicref href="testing-datastage-flows.dita">
-    <topicref href="dita_technical_committee.dita"/>
-    <topicref href="dita_adoption_technical_committee.dita"/>
+    <topicref href="creating-a-datastage-test-case.dita"/>
+    <topicref href="editing-a-datastage-test.dita"/>
+    <topicref href="managing-datastage-test-data.dita"/>
+    <topicref href="executing-a-datastage-test.dita"/>
   </topicref>
-  <mapref href="document.ditamap"/>
+  <!-- <mapref href="document.ditamap"/> -->
   <!-- ... -->
 </map>
