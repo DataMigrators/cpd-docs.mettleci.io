@@ -1,4 +1,4 @@
-## Editing a DataStage test case
+## Managing DataStage test data
 
 You can edit DataStage test cases either from the Asset browser or directly from within the DataStage designer canvas.
 
