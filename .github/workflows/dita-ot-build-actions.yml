@@ -37,30 +37,3 @@ jobs:
           GITHUB_TOKEN: $
           BRANCH: gh-pages  # The branch the action should deploy to.
           FOLDER: html      # The folder the action should deploy.
-
-  build-dita:
-    name: Build HTML
-    runs-on: ubuntu-latest
-    steps:
-      - name: Git checkout
-        uses: actions/checkout@v2
-
-      - name: Build DITA using DITA-OT
-        uses: dita-ot/dita-ot-action@master
-        with:
-          input: document.ditamap
-          transtype: dita
-          output-path: docs-dita
-
-      - name: Upload DITA Output to a ZIP file
-        uses: actions/upload-artifact@v4
-        with:
-          name: dita-artifact
-          path: 'docs-dita'
-
-      - name: Deploy DITA Output to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@3.7.1
-        with:
-          GITHUB_TOKEN: $
-          BRANCH: gh-pages  # The branch the action should deploy to.
-          FOLDER: docs-dita # The folder the action should deploy.
