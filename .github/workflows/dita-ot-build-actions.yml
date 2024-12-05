@@ -29,11 +29,11 @@ jobs:
         with:
           input: document.ditamap
           transtype: html5
-          output-path: /
+          output-path: html
           
       - name: Deploy DITA Output to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: $
-          BRANCH: gh-pages  # The branch the action should deploy to.
-          FOLDER: .         # The folder the action should deploy.
+          branch: gh-pages  # The branch to which the action should deploy
+          folder: html      # The folder the action should deploy
+          target-folder: .  # The target folder into which the action should deploy
