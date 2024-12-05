@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dita
+  PUBLIC "-//OASIS//DTD DITA Composite//EN" "dita.dtd">
+<dita><topic id="testing-flows-using-datetime-references"><title>Testing flows using date/time references</title><body><p>Repeatable DataStage tests require that the flow being tested produces deterministic data based on a set of predefined inputs and parameters.  Calculations based on the current date or time are common in DataStage flow designs but will cause the output produced by those flows to change depending on the date and time when its job is executed.  This page outlines practices aimed at ensuring jobs using current date calculations are able to be validly tested.</p></body></topic><topic id="transformer-stages-using-system-time-and-date-functions"><title>Transformer Stages using system time and date functions</title><body><p>Transformer stages with derivations using the <codeph>CurrentDate()</codeph>, <codeph>CurrentTime()</codeph> or <codeph>CurrentTimestamp()</codeph> functions need to be considered carefully whn designing your tests. Unless your calculation requires a specific date and/or time then calls to the standard <codeph>CurrentDate()</codeph>, <codeph>CurrentTime()</codeph> and <codeph>CurrentTimestamp()</codeph> functions could potentially be substituted with calls to the <codeph>DSJobStartDate</codeph>, <codeph>DSJobStartTime</codeph> and <codeph>DSJobStartTimestamp</codeph> macros. This enables you to subsitute them with a specific value during testing.  Add <codeph>DSJobStartDate</codeph>, <codeph>DSJobStartTime</codeph>, and <codeph>DSJobStartTimestamp</codeph> (as required) to the <codeph>parameters</codeph> clause of the test Specification's <codeph>when</codeph> node and set the appropriate date and time values used during Unit Testing.</p></body><topic id="example"><title>Example</title><body><p>Open image-20200130-051121.png
+Screenshot of Transformer configuration UI showing use of date macro in Derivation.</p><codeblock>...
+when:
+  parameters:
+    DSJobStartDate: 2012-01-15
+    DSJobStartTime: 11:05:01</codeblock><p>Be careful when setting DSJobStartTimestamp in conjunction with either DSJobStartDate or DSJobStartTime, the MettleCI Unit Testing feature does not enforce that these parameters are logically consistent.</p><p>Ignoring columns which are known to be non-deterministic
+Rather than ensuring that a job under test produces deterministic data, you may decide to exclude one or more output columns from Unit Test comparisons.  This can be done by adding the columns to be ignored to the then clause of the Unit Test Specification.</p></body></topic><topic id="example-1"><title>Example</title><body><p>Open image-20200203-021938.png
+DataStage Classic Designer Client screenshot showing columns to be ignored in the Unit Test.</p><codeblock>given:
+...
+when:
+...
+then:
+  - stage: Transform
+    link: Output
+    path: Transform-Output.csv
+    ignore: 
+      - CREATION_DATE
+      - LAST_UPDATED</codeblock><p><b>Danger</b>: Ignoring columns will prevent columns containing non-deterministic from affecting test results.  This will also omit those columns from test comparisons, so unexpected output in those columns, or changes in the output of those columns, will not be detected.</p></body></topic></topic></dita>
