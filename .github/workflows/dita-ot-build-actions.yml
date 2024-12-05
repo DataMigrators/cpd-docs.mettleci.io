@@ -29,7 +29,7 @@ jobs:
       - name: Build HTML5 using DITA-OT
         uses: dita-ot/dita-ot-action@master
         with:
-          input: document.ditamap
+          input: docs-dita/document.ditamap
           transtype: html5
           output-path: html
 
