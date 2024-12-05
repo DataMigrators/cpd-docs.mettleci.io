@@ -18,19 +18,22 @@ jobs:
           transtype: dita
           output-path: docs-dita
 
+      # https://github.com/actions/upload-artifact
       - name: Upload DITA Output to a ZIP file
         uses: actions/upload-artifact@v4
         with:
           name: dita-artifact
           path: 'docs-dita'
 
+      # https://github.com/dita-ot/dita-ot-action
       - name: Build HTML5 using DITA-OT
         uses: dita-ot/dita-ot-action@master
         with:
           input: document.ditamap
           transtype: html5
           output-path: html
-          
+
+      # https://github.com/JamesIves/github-pages-deploy-action
       - name: Deploy DITA Output to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
