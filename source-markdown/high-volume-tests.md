@@ -60,7 +60,7 @@ Cluster keys should be chosen to break Actual and Expected data into clusters wh
 
 Note that if a Unit Test detects a value difference in a column which is a cluster key column, then the Unit Test difference report (which would normally describe the difference as a ***‘modified’*** row when not using a cluster key) will now describe the difference as distinct ***‘added’*** and ***‘removed’*** entries.  
 
-As useful as Cluster Keys are, it’s poor practice to simply apply them to every DataStage Test that has to process high data volumes. You will almost certainly find combinations of flows and data volumes in your Project where no Cluster Key will reduce the memory demands of a DataStage test enough to avoid Job aborts **(See Unit Test throws OutOfMemoryError exception)**. In these situations you can manage your test data volumes by …
+As useful as Cluster Keys are, it’s poor practice to simply apply them to every DataStage test that has to process high data volumes. You will almost certainly find combinations of flows and data volumes in your project where no Cluster Key will reduce the memory demands of a DataStage test enough to avoid Job aborts **(See Unit Test throws OutOfMemoryError exception)**. In these situations you can manage your test data volumes by …
 
 * carefully selecting a subset of records from your data sources,
 * using the DataStage's data fabrication features, or 
