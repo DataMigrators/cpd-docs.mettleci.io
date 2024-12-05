@@ -11,7 +11,9 @@ The data flowing along a flow's output links is captured as the current definiti
 Process
 
 1. In the test case editor click **Intercept data**. You'll need to accept any 'Overwrite all test data' warning you receive by clicking **Intercept flow**.
-1. You'll receive a meesage telling you the flow is running.
+1. You'll receive a message telling you the flow is running.  Select the ***Test history*** tab to browse the most recent history of test case job invocations, including jobs currently in progress.
+
+
 
 
 1. In the data area above the table click the **trash** icon to delete the data file.

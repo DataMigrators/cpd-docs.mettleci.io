@@ -21,7 +21,7 @@ You can execute DataStage test cases either from the Asset browser or directly f
 1. Click the **Test cases** icon to open up the test cases side panel.
 1. Click the run icon alongside the name of the test case you wish to invoke.
 
-This will bring you to the test case editor which suports the following functions:
+This will bring you to the test case editor which supports the following functions:
 
 * [Inspecting your test case JSON specification](test-specification-format.md)
 * [Editing input and output metadata](#editing-metadata)
@@ -31,5 +31,14 @@ This will bring you to the test case editor which suports the following function
 # Editing metadata <a href="editing-metadata"></a>
 
 
+
+
+
+
+## Browsing test history
+
+Select the ***Test history*** tab to browse the most recent history of test case job invocations, including jobs currently in progress.  The statistics panel shows a frequency distribution of test case job durations. 
+
+Click the ***Start time*** value to  
 
 
