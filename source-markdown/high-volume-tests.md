@@ -1,16 +1,14 @@
 # High Volume DataStage Tests
 
-During the execution of a DataStage test case the data produced by a job (on one or more output links) is compared against expected test data to identify and report on any differences.
+During the execution of a DataStage test case the data produced by a job (on one or more output links) is compared against expected test data to identify and report on any differences.  When testing with large volumes of data, the comparison process may consume too much memory and cause your test job to abort with a fatal error.  The simplest approach to resolving this issue is to reduce your test data volume to the smallest number of records necessary to exercise each code path through your flow.  Doing so will ensure that your test cases execute quickly and can be easily understood and maintained.
 
-When testing with large volumes of data, the comparison process may consume too much memory and cause your test job to abort with a fatal error.  The simplest approach to resolving this issue is to reduce your test data volume to the smallest number of records necessary to exercise each code path through your flow.  Doing so will ensure that your test cases execute quickly and can be easily understood and maintained.
-
-In the event that test data available to you cannot easily be reduced, the memory required by the data comparison process can be reduced by specifying a Cluster Key (based on one or more columns) in the test specification.
+In the event that test data available to you cannot easily be reduced, the memory required by the data comparison process can be reduced by specifying a **Cluster Key** in the test specification.
 
 ## Using Cluster Keys in DataStage Tests
 
-Setting a Cluster Key will prompt DataStage to split the actual data output and expected data into multiple, smaller subsets before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  The data are then sorted and a comparison of actual and expected data is performed using multiple, smaller operations which require less memory and are performed sequentially.  
+Defining a Cluster Key will cause DataStage to split the actual data output and expected data into multiple, smaller subsets before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key - a process somewhat analogous to DataStage partitioning.  The data are then sorted and a comparison of actual and expected data is performed using multiple, smaller operations which require less memory and are performed sequentially.  
 
-**Test result behaviour**: Due to the iterative nature of comparisons using a Cluster Key, each record which has differences in the Cluster Key columns will be reported as 1 added record and 1 removed record rather than shown as a single record with a change indicator.
+**Test result behavior**: Due to the iterative nature of comparisons using a Cluster Key, each record which has differences in the Cluster Key columns will be reported as 1 added record and 1 removed record rather than shown as a single record with a change indicator.
 
 A good Cluster Key is one that results in data subsets which strike a balance between the following factors:
 
@@ -63,5 +61,5 @@ Note that if a Unit Test detects a value difference in a column which is a clust
 As useful as Cluster Keys are, it’s poor practice to simply apply them to every DataStage test that has to process high data volumes. You will almost certainly find combinations of flows and data volumes in your project where no Cluster Key will reduce the memory demands of a DataStage test enough to avoid Job aborts **(See Unit Test throws OutOfMemoryError exception)**. In these situations you can manage your test data volumes by …
 
 * carefully selecting a subset of records from your data sources,
-* using the DataStage's data fabrication features, or 
+* using the DataStage's data fabrication features, or
 * both of these approaches in combination.

@@ -38,5 +38,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # The branch to which the action should deploy
-          folder: html      # The folder the action should deploy
+          folder: html/html5      # The folder the action should deploy
           target-folder: .  # The target folder into which the action should deploy

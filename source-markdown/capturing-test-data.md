@@ -4,7 +4,7 @@ Each DataStage development team will already have a set of test data that they u
 
 ![screen capture](./images/ds-test-case-capture.png "test screen capture")
 
-This process involves running your flow in a 'Capture' mode.  In this mode DataStage will interogate the data flowing along the input and output links referenced in your test case specification and record the data it observes into the test data file referenced (by your specification) against each link.  This permits the capture of structured and unstructured data from both batch and streaming data sources.  
+This process involves running your flow in a 'Capture' mode.  In this mode DataStage will interrogate the data flowing along the input and output links referenced in your test case specification and record the data it observes into the test data file defined (by your specification) for each link.  This permits the capture of structured and unstructured data from both batch and streaming data sources.
 
 The data flowing along a flow's output links is captured as the current definition of 'expected' output into the relevant output data files.  When you alter the flow's functionality you may well need to [re-capture a new baseline](baselining-test-results.md) of expected results.
 

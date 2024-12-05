@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
-  <title>DataStage test cases</title>
+  <title>datastage-test-cases</title>
   <topicref href="testing-datastage-flows.dita">
     <topicref href="creating-a-datastage-test-case.dita"/>
     <topicref href="editing-a-datastage-test.dita"/>

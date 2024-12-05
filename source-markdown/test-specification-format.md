@@ -137,84 +137,11 @@ For example:
 }
 ```
 
-Similar to the `Given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniqely identifies links using a combination of the stage and link names.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
+Similar to the `given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniqely identifies links using a combination of the stage and link names.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
 
+Further options are available on the `then` property that permit a specification to ...
 
-### Cluster keys <a href="cluster-keys"></a>
+* [Improve performance of test cases with large data volumes](high-volume-tests.md)
+* [Configure your tests to only count the number of rows](row-count-comparisons.md), rather than compare actual data
+* [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
 
-The `cluster` property is used to assist DataStage's resource management when using high volumes of test data.  Setting a **Cluster Key** will prompt DataStage to split the actual output and expected output using multiple, smaller subsets (based on the supplied keys) before the data is compared.  Data is split such that each subset will only contain records that have the same values for all columns that make up the Cluster Key.  In general, Cluster Keys should only be used when necessary and not specified by default. Read more about the using the cluster property in [high volume tests](high-volume-tests.md).
-
-```
-{   …
-    "then": [
-        {
-            "path": "ODBC_orders.csv",
-            "stage": "ODBC_order",
-            "link": "order_out",
-            "cluster": [
-                "Account_Id",
-                "Type_Code"
-            ]
-        }
-    ],
-    …
-}
-```
-
-### Row count comparisons <a href="row-count-comparisons"></a>
-
-You can configure a test to only compare outputs' row counts, rather than the content of those rows, by setting the `checkRowCountOnly` property to true.
-
-```
-{   …
-    "then": [
-        {
-            "path": "ODBC_orders.csv",
-            "stage": "ODBC_order",
-            "link": "order_out",
-            "checkRowCountOnly": "true"
-        }
-    ],
-    …
-}
-```
-
-### Excluding columns from tests <a href="excluding-columns-from-tests"></a>
-
-You can omit selected columns from the output comparison by listing them in an `ignore` property array for the relevant output.
-
-```
-{   …
-    "then": [
-        {
-            "path": "ODBC_orders.csv",
-            "stage": "ODBC_order",
-            "link": "order_out",
-            "ignore": [
-                "Creation_date",
-                "Last_updated"
-            ]
-        }
-    ],
-    …
-}
-```
-
-## Test specification patterns <a href="test-specification-patterns"></a>
-
-Most DataStage flows can be tested simply by replacing input and output stages. However some flow designs may necessitate a more advanced testing configuration. The sections below outline DataStage test specification patterns that best match these job designs.
-
-* [Testing stages with reject links](testing-stages-with-reject-links.md)
-* Testing Stored Procedure Stages
-* Testing Surrogate Key Generator Stages
-* Testing Sparse Lookup Stages
-* Testing Jobs with current date calculations
-* Tests featuring Local and Shared Containers
-
-See also:
-
-* [High volume Tests](high-volume-tests.md)
-
-
-- [Test Specification Types](#test-specification-types)
-- [Test specification patterns](#test-specification-patterns)
