@@ -138,9 +138,11 @@ The `then` property array associates test data files with your flow's output lin
 
 Similar to the `given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniqely identifies links using a combination of the stage and link names.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
 
-Further options are available on the `then` property that permit a specification to ...
+Further options are available within the `then` property that extend the capabilities of your test case:
 
-* [Improve performance of test cases with large data volumes](high-volume-tests.md)
-* [Configure your tests to only count the number of rows](row-count-comparisons.md), rather than compare actual data
+* [Use test data for only a subset of flow stages](selective-stubbing.md)
+* [Improve performance of test cases when using data volumes](high-volume-tests.md)
+* [Configure your tests to only count the number of rows](row-count-comparisons.md)
 * [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
-
+* [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
+* [Testing flows using date/time references](testing-flows-using-datetime-references.md)
