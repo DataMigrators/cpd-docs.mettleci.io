@@ -16,7 +16,8 @@ Process
 
 
 
+
 1. In the data area above the table click the **trash** icon to delete the data file.
-1. Your test specification now refers to at least one CSV data file which no longer exists. [Execute your test case](executing-a-datastage-test-case.md) without changing the specification. DataStage will identify that no expected results exist for the file(s) you’ve deleted and re-create them using the data captured at runtime.  Note that test case will fail when executed in this mode.
+1. Your test specification now refers to at least one CSV data file which no longer exists. [Execute your test case](executing-datastage-test-cases.md) without changing the specification. DataStage will identify that no expected results exist for the file(s) you’ve deleted and re-create them using the data captured at runtime.  Note that test case will fail when executed in this mode.
 1. Re-execute the same test case job.  DataStage will now use the new baseline results files and your test case will pass. 
 

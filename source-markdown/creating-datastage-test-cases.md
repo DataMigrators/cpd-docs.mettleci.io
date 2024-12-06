@@ -2,7 +2,7 @@
 
 Unit tests can be created for individual jobs using the the DataStage user interface.  When DataStage creates a test case it performs the following steps:
 
-1. Interrogate your flow design to identify all source and target stages.
+1. Inspect your flow design to identify all source and target stages.
 1. Read the metadata definition of each source stage input link and target stage output link (i.e. all data flowing into and out of your flow).  Note that each source stage may be configured with multiple output links, and each target stage may be configured with multiple input links.
 1. Create an empty test case data file for each source and target link, with appropriate metadata definitions. 
 1. Interrogate your flow's parameters.
@@ -15,7 +15,7 @@ Unit tests can be created for individual jobs using the the DataStage user inter
 
 You can create DataStage test cases either from the Asset browser or directly from within the DataStage designer canvas.
 
-From the asset browser open an existing project or create a new project then click **New asset +** > **Create DataStage test case**.
+From the asset browser open an existing project or create a new project then, on the **Assets** tab, click **New asset +** and select the **Create DataStage test case** option.
 
 From the DataStage canvas open an existing DataStage flow or create a new flow then click the **Test cases** icon to open up the test cases side panel and click **New test case +**.
 
@@ -30,3 +30,22 @@ From the DataStage canvas open an existing DataStage flow or create a new flow t
 1. Specify the names of parameters or parameter sets for which your test will supply hard-coded values.
 1. Click **Create**.
 
+## Creating test data
+
+There are a number of ways you can derive data for your test case.  Start by opening you test case and from the Data tab selecting the test data file you wish to edit.
+
+### Capture test data
+
+Use this method to capture data at runtime from a job invocation.  For more details see [Capturing test data](capturing-test-data.md).
+
+### Import test data
+
+You can import locally-stored CSV data into your IBM Cloud Pak DataStage test data files:
+
+1. Click the **Import** button above the test data table.
+1. Upload your file by dragging and dropping your file, or clicking the link to specify a file.
+1. Click **Import**.
+
+Note that any existing test data in your selected file will be overwritten.
+
+Read more about [editing DataStage test cases](editing-datastage-tests.md).
