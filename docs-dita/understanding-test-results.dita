@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE topic
-  PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
-<topic id="undertanding-test-results"><title>Undertanding test results</title><body/><topic id="success"><title>Success:</title><body><p>'Transform JMcK' test run was passed
-Test data matched the expected results.</p></body></topic><topic id="failure"><title>Failure</title><body/></topic><topic id="failure-with-rowcount-only"><title>Failure with RowCount only</title><body/></topic></topic>
