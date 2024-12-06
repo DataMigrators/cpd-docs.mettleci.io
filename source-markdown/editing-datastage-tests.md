@@ -1,8 +1,8 @@
 # Editing a DataStage test case
 
-You can edit DataStage test cases either from the Asset browser or directly from within the DataStage designer canvas.
+You can enter the DataStage test cases editor either by selecting the Test case asset on the project page or from within the DataStage designer canvas.
 
-From the asset browser open an existing project then open the **Assets** tab and under the **Asset types** panel select **DataStage components** > **Test cases** from where you can click the name of the test case you wish to edit.
+Open an existing project then open the **Assets** tab and under the **Asset types** panel select **DataStage components** > **Test cases** from where you can click the name of the test case you wish to edit.
 
 From the DataStage canvas open an existing DataStage flow then click the **Test cases** icon to open up the test cases side panel from where you can click the name of the test case you wish to edit.
 

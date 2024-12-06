@@ -59,6 +59,8 @@ For example:
 
 Some source stages can be configured with multiple output links so each input in your test specification's `given` property array is uniqely identified using a combination of the stage and link names to eliminate ambiguity.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
 
+Note that not every stage in a job must be provided with test data.  You can easily craft a test specification which [uses test data for only a subset of flow stages](selective-stubbing.md).
+
 ### Sparse Lookup sources <a href="sparse-lookup-sources"></a>
 
 When an input source is used with a Sparse Lookup stage then rather than using the stage property to specify the input you will use the `sparseLookup` property.
@@ -114,6 +116,8 @@ Substitute hardcoded values for the `DSJobStartDate` and `DSJobStartTime` macros
 }
 ```
 
+One application of the `parameters` property is to supply values to make flows that rely on system date and time information produce a deterministic output by [hard coding those values when testing](testing-flows-using-datetime-references.md).
+
 ## Then <a href="then"></a>
 
 The `then` property array associates test data files with your flow's output links. 
@@ -138,11 +142,10 @@ The `then` property array associates test data files with your flow's output lin
 
 Similar to the `given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniqely identifies links using a combination of the stage and link names.  The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
 
-Further options are available within the `then` property that extend the capabilities of your test case:
+Other properties which extend the capabilities of your test case can be included in the `then` property array:
 
-* [Use test data for only a subset of flow stages](selective-stubbing.md)
-* [Improve performance of test cases when using data volumes](high-volume-tests.md)
-* [Configure your tests to only count the number of rows](row-count-comparisons.md)
-* [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
-* [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
-* [Testing flows using date/time references](testing-flows-using-datetime-references.md)
+**The `ClusterKey` property**: [Improve performance of test cases when using data volumes](high-volume-tests.md)
+
+**The `checkRowCountOnly` property**: [Configure your tests to only count the number of rows](row-count-comparisons.md)
+
+**The `ignore` property**: [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)

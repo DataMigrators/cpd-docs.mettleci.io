@@ -31,5 +31,4 @@ The `when` section of your test specification would look like this:
 }
 ```
 
-Be careful when setting DSJobStartTimestamp in conjunction with either DSJobStartDate or DSJobStartTime, the MettleCI Unit Testing feature does not enforce that these parameters are logically consistent.
-
+**Note:** Be careful when setting `DSJobStartTimestamp` in conjunction with either `DSJobStartDate` or `DSJobStartTime` as the DataStage test case capability does not attempt to enforce logical consistency between these parameters.

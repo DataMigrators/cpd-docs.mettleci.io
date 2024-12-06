@@ -16,4 +16,4 @@ You can configure a DataStage test case to only compare outputs' row counts, rat
 }
 ```
 
-**Note** that the 'checkRowCountOnly' property takes a boolean value which does not use quotes.
+**Note** that the `checkRowCountOnly` property takes a boolean value which does not use quotes.

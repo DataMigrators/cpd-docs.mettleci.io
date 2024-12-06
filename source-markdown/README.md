@@ -10,7 +10,6 @@ MettleCI-related CP4D documentation created by Data Migrators
         * [Improve performance of test cases when using data volumes](high-volume-tests.md)
         * [Configure your tests to only count the number of rows](row-count-comparisons.md)
         * [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
-        * [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
         * [Testing flows using date/time references](testing-flows-using-datetime-references.md)
     * [Executing DataStage tests](executing-datastage-test-cases.md)
-    * [Verifying DataStage test results](verifying-datastage-test-results.md)
+    * [Verifying DataStage test results](verifying-test-results.md)

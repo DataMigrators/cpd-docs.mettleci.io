@@ -8,16 +8,8 @@ This process involves running your flow in a 'Capture' mode.  In this mode DataS
 
 The data flowing along a flow's output links is captured as the current definition of 'expected' output into the relevant output data files.  When you alter the flow's functionality you may well need to [re-capture a new baseline](baselining-test-results.md) of expected results.
 
-Process
+## Process
 
 1. In the test case editor click **Intercept data**. You'll need to accept any 'Overwrite all test data' warning you receive by clicking **Intercept flow**.
-1. You'll receive a message telling you the flow is running.  Select the ***Test history*** tab to browse the most recent history of test case job invocations, including jobs currently in progress.
-
-
-
-
-
-1. In the data area above the table click the **trash** icon to delete the data file.
-1. Your test specification now refers to at least one CSV data file which no longer exists. [Execute your test case](executing-datastage-test-cases.md) without changing the specification. DataStage will identify that no expected results exist for the file(s) you’ve deleted and re-create them using the data captured at runtime.  Note that test case will fail when executed in this mode.
-1. Re-execute the same test case job.  DataStage will now use the new baseline results files and your test case will pass. 
-
+1. You'll receive a message telling you the flow is running.  Select the **Test history** tab to browse the most recent history of test case job invocations, including jobs currently in progress.
+1. Once the job is complete select the **Data** tab and browse the newly-populated test data under the the **Test data in use** tree.
