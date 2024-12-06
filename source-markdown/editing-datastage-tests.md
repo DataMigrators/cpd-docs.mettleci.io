@@ -18,7 +18,7 @@ For a detailed explanation of the format of this JSON specification and the opti
 
 As well as using capture and import methods to derive test data, you can also manually enter test data into your test data files.  The test data table can be edited interactively like a spreadsheet and provides the following notable capabilities:
 
-* Undo/redo of editing actions is supported with the traditional keyboard shortcuts ctlr+z and shift+ctrl+z (Windows) or ⌘+z and shift+⌘-z (macOS).
+* Undo/redo of editing actions is supported with the traditional keyboard shortcuts ctrl+z and shift+ctrl+z (Windows) or ⌘+z and shift+⌘-z (macOS).
 * Values entered into a cell are validated based on the column's metadata definition. Invalid data is highlighted in red.
 
 ### Modifying metadata

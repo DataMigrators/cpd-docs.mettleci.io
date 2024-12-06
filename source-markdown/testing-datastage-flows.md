@@ -21,7 +21,7 @@ Each DataStage test case is associated with a single DataStage flow. You can cre
 
 ## See also
 
-* [DataStage testing concepts](datastage-testing-concepts.md)
+* [DataStage testing concepts](selective-stubbing.md)
 * [Migrating DataStage tests from older versions](migrating-datastage-tests-from-older-versions.md)
 * [Building tests with high data volumes](high-volume-tests.md)
 * [The DataStage test specification format](test-specification-format.md)

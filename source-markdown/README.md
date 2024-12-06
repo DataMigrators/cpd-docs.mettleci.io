@@ -1,7 +1,7 @@
 # cpd-docs.mettleci.io
 MettleCI-related CP4D documentation created by Data Migrators
 
-* [DataStage testing concepts](datastage-testing-concepts.md)
+* [DataStage testing concepts](selective-stubbing.md)
 * [Testing DataStage flows](testing-datastage-flows.md)
     * [Creating DataStage test cases](creating-datastage-test-cases.md)
         * [Capturing test data](capturing-test-data.md)

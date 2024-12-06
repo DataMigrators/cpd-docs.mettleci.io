@@ -118,7 +118,6 @@ Substitute hardcoded values for the `DSJobStartDate` and `DSJobStartTime` macros
 
 The `then` property array associates test data files with your flow's output links. 
 
-For example:
 ```
 {   …
     "then": [
