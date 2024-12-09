@@ -2,9 +2,8 @@
 
 You can enter the DataStage test cases editor either by selecting the Test case asset on the project page or from within the DataStage designer canvas.
 
-Open an existing project then open the **Assets** tab and under the **Asset types** panel select **DataStage components** > **Test cases** from where you can click the name of the test case you wish to edit.
-
-From the DataStage canvas open an existing DataStage flow then click the **Test cases** icon to open up the test cases side panel from where you can click the name of the test case you wish to edit.
+- Open an existing project then open the **Assets** tab and under the **Asset types** panel select **DataStage components** > **Test cases** from where you can click the name of the test case you wish to edit.
+- From the DataStage canvas open an existing DataStage flow then click the **Test cases** icon to open up the test cases side panel from where you can click the name of the test case you wish to edit.
 
 This will bring you to the test case editor which allows you to inspect and modify your test case specification as well as edit the contents of your input and output test data files.
 
@@ -18,18 +17,17 @@ For a detailed explanation of the format of this JSON specification and the opti
 
 As well as using capture and import methods to derive test data, you can also manually enter test data into your test data files.  The test data table can be edited interactively like a spreadsheet and provides the following notable capabilities:
 
-* Undo/redo of editing actions is supported with the traditional keyboard shortcuts ctrl+z and shift+ctrl+z (Windows) or ⌘+z and shift+⌘-z (macOS).
-* Values entered into a cell are validated based on the column's metadata definition. Invalid data is highlighted in red.
+- Undo/redo of editing actions is supported with the traditional keyboard shortcuts ctrl+z and shift+ctrl+z (Windows) or ⌘+z and shift+⌘-z (macOS).
+- Values entered into a cell are validated based on the column's metadata definition. Invalid data is highlighted in red.
 
 ### Modifying metadata
 
-* Rows can be added be selecting the **Add row** icon above the test data table.
-* Rows can be deleted by selecting the three dots on the row header and clicking **Delete**.
-* Columns can be added be selecting the **Add column** icon above the test data table.
-* Columns can be deleted by selecting the three dots on the column header and clicking **Delete column**.
+- Rows can be added be selecting the **Add row** icon above the test data table.
+- Rows can be deleted by selecting the three dots on the row header and clicking **Delete**.
+- Columns can be added be selecting the **Add column** icon above the test data table.
+- Columns can be deleted by selecting the three dots on the column header and clicking **Delete column**.
 
-Modify the metadata of a test data column by selecting the three dots on the column header and clicking **Edit column**.  The resulting panel enables you to specify the 
-Column name, Data type, Nullability, Length, and Extended metadata. Click **Save** to record your changes.
+Modify the metadata of a test data column by selecting the three dots on the column header and clicking **Edit column**.  The resulting panel enables you to specify the column's name, data type, nullability, length, and extended metadata. Click **Save** to record your changes.
 
 ### Modifying test data outside the DataStage interface
 

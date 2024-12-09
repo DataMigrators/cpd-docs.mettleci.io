@@ -33,7 +33,7 @@ Consider the situation where a DataStage Test has to compare several million fin
 
 The test specification can be updated with a Cluster Key to enable iterative comparison of actual and expected test data.  In this example, `Account_Id` and `Type_Code` are defined as the compound Cluster Key:
 
-```
+```json
 {   …
     "then": [
         {
@@ -54,7 +54,7 @@ The test specification can be updated with a Cluster Key to enable iterative com
 
 ### Caveats
 
-Cluster keys should be chosen to break Actual and Expected data into clusters which are small enough to fit in memory. 
+Cluster keys should be chosen to break Actual and Expected data into clusters which are small enough to fit in memory.
 
 Note that if a Unit Test detects a value difference in a column which is a cluster key column, then the Unit Test difference report (which would normally describe the difference as a ***‘modified’*** row when not using a cluster key) will now describe the difference as distinct ***‘added’*** and ***‘removed’*** entries.  
 

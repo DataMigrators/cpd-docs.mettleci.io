@@ -2,7 +2,7 @@
 
 You can configure a DataStage test case to only compare outputs' row counts, rather than the content of those rows, by setting the `checkRowCountOnly` property to true.
 
-```
+```json
 {   …
     "then": [
         {

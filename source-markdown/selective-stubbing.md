@@ -4,11 +4,11 @@ The process of 'stubbing' involves using a fabricated version of an external dat
 
 When you [specify a DataStage unit test](creating-datastage-test-cases.md) you are defining stub data and telling DataStage which link(s) to stub with that data. There may be some instances where you wish to define a test case that only injects test data into ***some*** of your flow's input links, and allow other source stages to operate normally during a test execution. These input links which are not stubbed are not referenced in your test specification and will connect to their configured data source and retrieve data at runtime.
 
-To define a link which should not be stubbed simply omit the link from the `given` section of your [test specification](test-specification-format.md). 
+To define a link which should not be stubbed simply omit the link from the `given` section of your [test specification](test-specification-format.md).
 
 For example ...
 
-```
+```json
 {   …
     "given": [
         {
