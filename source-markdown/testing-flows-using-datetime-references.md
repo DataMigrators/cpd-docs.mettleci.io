@@ -20,7 +20,7 @@ If inPurchases.Purchase_Date = DSJobStartDate and
 The `when` section of your test specification would look like this:
 
 ```json
-{   …
+{
     "when": {
         "data_intg_flow_ref": "blah-blah-blah",  
         "parameters": {
