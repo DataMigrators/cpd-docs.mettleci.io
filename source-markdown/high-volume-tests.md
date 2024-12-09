@@ -34,7 +34,7 @@ Consider the situation where a DataStage Test has to compare several million fin
 The test specification can be updated with a Cluster Key to enable iterative comparison of actual and expected test data.  In this example, `Account_Id` and `Type_Code` are defined as the compound Cluster Key:
 
 ```json
-{   …
+{
     "then": [
         {
             "path": "ODBC_orders.csv",
@@ -46,7 +46,6 @@ The test specification can be updated with a Cluster Key to enable iterative com
             ]
         }
     ],
-    …
 }
 ```
 

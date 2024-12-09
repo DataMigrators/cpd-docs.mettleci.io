@@ -3,7 +3,7 @@
 You can omit selected columns from the test case output comparison by adding the columns to be ignored to the an `ignore` property array for the relevant output specification.
 
 ```json
-{   …
+{
     "then": [
         {
             "path": "ODBC_orders.csv",
@@ -15,7 +15,6 @@ You can omit selected columns from the test case output comparison by adding the
             ]
         }
     ]
-    …
 }
 ```
 
