@@ -10,21 +10,19 @@
 
 A DataStage test case specification (often abbreviated ‘Spec') is a JSON-formatted file which uses a grammar modelled loosely on the [Gherkin syntax](https://cucumber.io/docs/gherkin/) used by the Cucumber testing tool. The overall structure follows the common Gherkin pattern …
 
-```json
+```text
 {
     "given": [
-        { # Inject this test data file into stageA.linkA },
-        { # Inject this test data file into stageB.linkB },
-        { # etc. }
+        { This test data on input link 1 },
+        { This test data on input link 2 }
     ],
     "when": {
-        # Execute the test case with these options and parameter values
+        I execute the test case with these options and parameter values
     },
     "then": [
-        { # Expect flow output on stageX.linkX to look like this test data file },
-        { # Expect flow output on stageY.linkY to look like this test data file },
-        { # etc. }
-    ],
+        { Expect this data to appear on output link 1 },
+        { Expect this data to appear on output link 2 }
+    ]
 }
 ```
 
@@ -37,7 +35,7 @@ The `given` property array associates test data files with your flow's input , t
 For example:
 
 ```json
-{   …
+{
     "given": [
         {
             "path": "fileCustomers.csv",
@@ -50,7 +48,6 @@ For example:
             "link": "Orders"
         }
     ],
-    …
 }
 ```
 
@@ -65,7 +62,7 @@ When an input source is used with a Sparse Lookup stage then rather than using t
 For example:
 
 ```json
-{   …
+{
     "given": [
         {
             "path": "fileCustomers.csv",
@@ -81,7 +78,6 @@ For example:
             ]
         }
     ],
-    …
 }
 ```
 
@@ -100,9 +96,8 @@ For example, this specification will
 Substitute hardcoded values for the `DSJobStartDate` and `DSJobStartTime` macros and the `paramStartKey` parameter:
 
 ```json
-{   …
+{
     "when": {
-        # An internally-generated reference to the flow with which this test is associated
         "data_intg_flow_ref": "3023970f-ba2dfb02bd3a",  
         "parameters": {
             "DSJobStartDate": "2012-01-15"
@@ -110,18 +105,19 @@ Substitute hardcoded values for the `DSJobStartDate` and `DSJobStartTime` macros
             "paramStartKey": "100"
         }
     },
-    …
 }
 ```
 
 One application of the `parameters` property is to supply values to make flows that rely on system date and time information produce a deterministic output by [hard coding those values when testing](testing-flows-using-datetime-references.md).
+
+**Note** that the `data_intg_flow_ref` property is an internally-generated DataStage reference to the flow with which this test is associated and should not be changed.
 
 ## Then <a id="then"></a>
 
 The `then` property array associates test data files with your flow's output links.
 
 ```json
-{   …
+{
     "then": [
         {
             "path": "ODBC_customers.csv",
@@ -134,7 +130,6 @@ The `then` property array associates test data files with your flow's output lin
             "link": "order_out"
         }
     ],
-    …
 }
 ```
 
@@ -142,8 +137,6 @@ Similar to the `given` property, because some target stages can be configured wi
 
 Other properties which extend the capabilities of your test case can be included in the `then` property array:
 
-**The `ClusterKey` property**: [Improve performance of test cases when using data volumes](high-volume-tests.md)
-
-**The `checkRowCountOnly` property**: [Configure your tests to only count the number of rows](row-count-comparisons.md)
-
-**The `ignore` property**: [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)
+- **The `ClusterKey` property**: [Improve performance of test cases when using data volumes](high-volume-tests.md)
+- **The `checkRowCountOnly` property**: [Configure your tests to only count the number of rows](row-count-comparisons.md)
+- **The `ignore` property**: [Exclude specific columns from test comparisons](excluding-columns-from-tests.md)

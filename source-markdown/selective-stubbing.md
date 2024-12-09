@@ -9,7 +9,7 @@ To define a link which should not be stubbed simply omit the link from the `give
 For example ...
 
 ```json
-{   …
+{
     "given": [
         {
             "path": "filePurchasesIn.csv",
