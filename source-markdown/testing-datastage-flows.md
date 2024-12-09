@@ -12,6 +12,7 @@ Each DataStage test case is associated with a single DataStage flow. You can cre
 
 ## Using DataStage test cases
 
+1. [Configuring test data storage](configuring-test-data-storage.md)
 1. [Creating DataStage test cases](creating-datastage-test-cases.md)
 1. [Editing DataStage tests](editing-datastage-tests.md)
 1. [Executing DataStage tests](executing-datastage-test-cases.md)
