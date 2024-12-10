@@ -11,7 +11,7 @@ Start by creating a connection to a storage volume where test assets will be sto
    1. click **New volume**.
    1. Select a namespace (the default will be fine).
    1. Give your storage volume a name and optional description.
-   1. Select the type **External NFS** and click **Add**.
+   1. Select your preferred storage type (e.g. **External NFS**) and click **Add**.
 1. Under Personal credentials > Input method select **Enter credentials manually**.
 1. Check the **Use my platform login credentials** then click **Test connection**.
 1. Assuming you have a successful connection, click **Save**.
