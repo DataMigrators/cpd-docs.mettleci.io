@@ -133,7 +133,7 @@ The `then` property array associates test data files with your flow's output lin
 }
 ```
 
-Similar to the `given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniquely identifies links using a combination of the stage and link names. The array also contains a `path` property to identify the test data CSV file containing the test data that is to be injected on each incoming link.
+Similar to the `given` property, because some target stages can be configured with multiple input links the test specification's `then` property array uniquely identifies links using a combination of the stage and link names. The array also contains a `path` property to identify the test data CSV file containing the expected test output that will be compared to the actual data appearing on each output link.
 
 Other properties which extend the capabilities of your test case can be included in the `then` property array:
 
