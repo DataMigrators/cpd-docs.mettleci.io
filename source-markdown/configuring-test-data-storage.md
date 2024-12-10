@@ -23,4 +23,4 @@ Now you'll configure DataStage to use your storage volume for storing test case 
 1. From the CPD Cluster home page select the **Manage** tab then, under **Tools**, select **DataStage** and then select the tab **Test cases**.
 1. For **Test data connection type** select **Storage Volume**.
 1. For **Test data storage** select the name of the Storage volume you created in the step above.
-1. For **Default DataStage Test case job suffix** specify a suffix which will be appended to all test case jobs to help distinguish them in the job log from invocations of their associated flows. e.g. ` DataStage TestCase Job`. Note the leading space included here, as DataStage will no automatically add one for you.
+1. For **Default DataStage Test case job suffix** specify a suffix which will be appended to all test case jobs to help distinguish them in the job log from invocations of their associated flows. e.g. ` DataStage TestCase Job`. Note the leading space included here, as DataStage will not automatically add one for you.
