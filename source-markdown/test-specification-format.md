@@ -6,7 +6,7 @@
 - [When](#when) these conditions are met
 - [Then](#then) expect these outputs
 
-## Structure <a id="structure"></a>
+## Structure
 
 A DataStage test case specification (often abbreviated ‘Spec') is a JSON-formatted file which uses a grammar modelled loosely on the [Gherkin syntax](https://cucumber.io/docs/gherkin/) used by the Cucumber testing tool. The overall structure follows the common Gherkin pattern …
 
@@ -28,7 +28,7 @@ A DataStage test case specification (often abbreviated ‘Spec') is a JSON-forma
 
 ***Note:*** The user interface may order the JSON objects alphabetically (`given` > `then` > `when`) but this has no effect on the functionality of the test.
 
-## Given <a id="given"></a>
+## Given
 
 The `given` property array associates test data files with your flow's input , thereby defining the test values you wish to inject into your flow's inputs at runtime.
 
@@ -55,7 +55,7 @@ Some source stages can be configured with multiple output links so each input in
 
 Note that not every stage in a job must be provided with test data.  You can easily craft a test specification which [uses test data for only a subset of flow stages](selective-stubbing.md).
 
-### Sparse Lookup sources <a id="sparse-lookup-sources"></a>
+### Sparse Lookup sources
 
 When an input source is used with a Sparse Lookup stage then rather than using the stage property to specify the input you will use the `sparseLookup` property.
 
@@ -87,7 +87,7 @@ The `sparseLookup` property identifies a JSON object which specifies …
 - a path to the relevant CSV test data file, and
 - a list of key columns to be used for the sparse lookup.
 
-## When <a id="when"></a>
+## When
 
 The `when` property array specifies which job will be executed during testing as well as any parameters (including job macros) that affect the data produced by the job.
 
@@ -112,7 +112,7 @@ One application of the `parameters` property is to supply values to make flows t
 
 **Note** that the `data_intg_flow_ref` property is an internally-generated DataStage reference to the flow with which this test is associated and should not be changed.
 
-## Then <a id="then"></a>
+## Then
 
 The `then` property array associates test data files with your flow's output links.
 

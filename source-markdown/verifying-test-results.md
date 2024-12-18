@@ -25,20 +25,19 @@ On the resulting **Run details** page select the **Test results** tab to see det
 
 Test case errors will produce a **difference report** detailing how the expected and actual results differ from one another.
 
-![screen capture](./images/ds-test-case-results-fail.png "test screen capture")
+![multiple differences](./images/ds-test-multi-diff.png "multiple differences")
 
 ## The difference report
 
-The difference report contains rows and columns from the tables being compared. Similar to the textual output of the unix `diff` command, there is flexibility in what data is displayed and what is omitted.
+Every DataStage test case involved the comparison of at least one **Actual** result set, produced by your Flow, and an associated **Expected** result set, defined by your test case. The differences in these result sets is expressed in a tabular form which describe, using indicators in row headers, column headers, or cells, the operations that would be required to modify the **Expected** data to match the **Actual** data. 
 
-- A column or row that is common to the tables being compared should appear at most once.
-- Any column or row containing a modified cell should be included in the diff, and the modified cell should be represented using the procedure in Expressing a modified cell value.
-- Columns or rows that are present in one table and not in the other should be included in the diff.
-- Columns or rows that are unchanged and unneeded for context may be omitted at DataStage's discretion.
-- Omitted blocks of rows or columns should be marked with a row/column full of “…” cells.
+Taking the example test report above:
 
-In addition, the difference report contains the following special rows and columns:
-
-- The action column. This is always present, and is the first column in the difference report.
-- A header row with column names. This row can be recognized since it will have the tag @@ in the action column.
-- A schema row that is needed when the column structure differs between tables. This row can be recognized since it will have the tag ! in the action column.
+| Change type             | Indicator | Example |
+|-------------------------|-----------|---------|
+| Inserted rows           | ![inserted row](./images/diff-row-insert.svg "inserted row header icon") | An additional, unexpected row (for customer 'Ardith Beahan') is present |
+| Deleted rows            | ![deleted row](./images/diff-row-delete.svg "deleted row header icon") | The expected row (for 'Doc Brown') is missing |
+| Inserted columns        | ![deleted column](./images/diff-column-insert.svg "deleted column header icon") | An additional, unexpected INTEGER column **CENTS** was produced |
+| Deleted columns         | ![deleted column](./images/diff-column-delete.svg "delete column header icon") | The expected TINYINT column **MEMBERSHIP** was not found |
+| Modified column metadata | Additional header row | A VARCHAR column was renamed from `FIRST_NAME` to `FirstName` as indicated by an additional header row |
+| Modified cell values     | ![cell modified](./images/diff-difference.svg "cell modified indicator")        | A modified value (33298->33262) in the **DOLLARS** columns for person 'Josianne Mante'|
