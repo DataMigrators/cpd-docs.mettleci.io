@@ -1,11 +1,8 @@
 {
-    "cSpell.words": [
-        "mettleci"
-    ],
     "cSpell.customDictionaries": {
         "custom-dictionary-workspace": {
             "name": "custom-dictionary-workspace",
-            "path": "${workspaceFolder:cpd-docs.mettleci.io}/.cspell/custom-dictionary-workspace.txt",
+            "path": "${workspaceFolder:source-markdown}/.cspell/custom-dictionary-workspace.txt",
             "addWords": true,
             "scope": "workspace"
         }
