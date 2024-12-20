@@ -15,6 +15,7 @@ Start by creating a connection to a storage volume where test assets will be sto
 1. Under Personal credentials > Input method select **Enter credentials manually**.
 1. Check the **Use my platform login credentials** then click **Test connection**.
 1. Assuming you have a successful connection, click **Save**.
+<!-- if the connection is NOT successfull, what is fhe most likely issue -->
 
 ## Add the connection to your project settings
 
@@ -24,3 +25,4 @@ Now you'll configure DataStage to use your storage volume for storing test case 
 1. For **Test data connection type** select **Storage Volume**.
 1. For **Test data storage** select the name of the Storage volume you created in the step above.
 1. For **Default DataStage Test case job suffix** specify a suffix which will be appended to all test case jobs to help distinguish them in the job log from invocations of their associated flows. e.g. ` DataStage TestCase Job`. Note the leading space included here, as DataStage will not automatically add one for you.
+<!-- Does this mean the actual text ' Datastage TestCase Job' will be appended to all test case jobs? -->
