@@ -27,6 +27,8 @@ Test case errors will produce a **difference report** detailing how the expected
 
 ![multiple differences](./images/ds-test-multi-diff.png "multiple differences")
 
+A difference report will be available for each failed test - i.e. each test where the expected and actual results varied.  For DataStage flows with multiple test failures (for multiple stubbed outputs) you can select which difference report to display by selecting the relevant output from the **Stubbed link** drop down box.
+
 ## The difference report
 
 Every DataStage test case involved the comparison of at least one **Actual** result set, produced by your Flow, and an associated **Expected** result set, defined by your test case. The differences in these result sets is expressed in a tabular form which describe, using indicators in row headers, column headers, or cells, the operations that would be required to modify the **Expected** data to match the **Actual** data. 

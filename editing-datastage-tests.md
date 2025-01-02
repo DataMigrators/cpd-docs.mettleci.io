@@ -7,17 +7,23 @@ You can enter the DataStage test cases editor either by selecting the Test case 
 
 This will bring you to the test case editor which allows you to inspect and modify your test case specification as well as edit the contents of your input and output test data files.
 
+![screen capture](./images/ds-test-case-editor.png "test screen capture")
+
 ## Editing the test case specification
 
-Selecting **Specification** from the **Data** tab od the test data editor will display the test case's specification.
+Selecting **Specification** from the **Data** tab will display the test case's specification.
 
-For a detailed explanation of the format of this JSON specification and the options available for controlling how your test case behaves see the [Test specification format](test-specification-format.md) page.
+For a detailed explanation of the format of this JSON specification and the options available for controlling how your test case behaves see [Test specification format](test-specification-format.md).
 
-## Editing test case data
+Each test data file referenced in your JSON specification (whether it represents input data or expected output data) will appear as a file under the **Test data in use** tree.  Selecting one of these will enable you to view and edit the test data.
+
+## Editing test data
+
+![screen capture](./images/ds-test-case-editor-data.png "test screen capture")
 
 As well as using capture and import methods to derive test data, you can also manually enter test data into your test data files.  The test data table can be edited interactively like a spreadsheet and provides the following notable capabilities:
 
-- Undo/redo of editing actions is supported with the traditional keyboard shortcuts ctrl+z and shift+ctrl+z (Windows) or ⌘+z and shift+⌘-z (macOS).
+- Undo/redo of editing actions is supported with the traditional keyboard shortcuts Control-Z and Shift-Control-Z (Windows) or Command-Z and Shift-Command-Z (macOS).
 - Values entered into a cell are validated based on the column's metadata definition. Invalid data is highlighted in red.
 
 ### Modifying metadata
@@ -54,11 +60,11 @@ Once you're happy with your test data changes you can store your changes by cloc
 
 ### Export a test case
 
-Export a test case to a zip file by clicking the **Export** icon on the test case toolbar.  ON the resulting dialog confirm the name of the export file and click 'Download'.  Note that this export does not contain test data.  To export test data for external modification see **Modifying test data outside the DataStage interface** above.
+Export a test case to a zip file by clicking the **Export** icon on the test case toolbar.  On the resulting dialog confirm the name of the export file and click **Download**.  Note that this export does not contain test data.  To export test data for external modification see **Modifying test data outside the DataStage interface** above.
 
 ## Test case settings
 
-Click the ***Settings*** icon to open the test case settings panel which enables you to specify options for the selected test.
+Click the **Settings** icon to open the test case settings panel which enables you to specify options for the selected test.
 
 **History record storage** allows you to specify the number of historical test results you wish to retain. This can be specified either by the number of days or the number of runs.
 

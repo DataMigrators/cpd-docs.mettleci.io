@@ -48,4 +48,4 @@ You can import locally-stored CSV data into your IBM Cloud Pak DataStage test da
 
 Note that any existing test data in your selected file will be overwritten.
 
-Read more about [editing DataStage test cases](editing-datastage-tests.md).
+You can read more about supplying the data and parameters that define your tests in [editing DataStage test cases](editing-datastage-tests.md).
