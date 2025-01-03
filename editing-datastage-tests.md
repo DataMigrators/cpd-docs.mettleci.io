@@ -28,9 +28,9 @@ As well as using capture and import methods to derive test data, you can also ma
 
 ### Modifying metadata
 
-- Rows can be added be selecting the **Add row** icon above the test data table.
+- Rows can be added by selecting the **Add row** icon above the test data table.
 - Rows can be deleted by selecting the three dots on the row header and clicking **Delete**.
-- Columns can be added be selecting the **Add column** icon above the test data table.
+- Columns can be added by selecting the **Add column** icon above the test data table.
 - Columns can be deleted by selecting the three dots on the column header and clicking **Delete column**.
 
 Modify the metadata of a test data column by selecting the three dots on the column header and clicking **Edit column**.  The resulting panel enables you to specify the column's name, data type, nullability, length, and extended metadata. Click **Save** to record your changes.
