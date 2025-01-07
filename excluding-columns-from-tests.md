@@ -1,6 +1,6 @@
 # Excluding columns from tests
 
-You can omit selected columns from the test case output comparison by adding the columns to be ignored to the an `ignore` property array for the relevant output specification.
+You can omit selected columns from the test case output comparison by adding the columns to be ignored to an `ignore` property array for the relevant output specification.
 
 ```json
 {
