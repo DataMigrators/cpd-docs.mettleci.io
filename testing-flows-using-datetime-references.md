@@ -31,4 +31,4 @@ The `when` section of your test specification would look like this:
 }
 ```
 
-**Note:** Be careful when setting `DSJobStartTimestamp` in conjunction with either `DSJobStartDate` or `DSJobStartTime` as the DataStage test case capability does not attempt to enforce logical consistency between these parameters.
+**Note:** Be careful when setting `DSJobStartTimestamp` in conjunction with either `DSJobStartDate` or `DSJobStartTime` as the DataStage test case capability does not attempt to enforce logical consistency between these parameters. i.e. You could specify conflicting values for these macros which would create a contradictory logical condition.

@@ -1,6 +1,6 @@
 # Creating a DataStage test case
 
-Unit tests can be created for individual jobs using the the DataStage user interface.  When DataStage creates a test case it performs the following steps:
+Unit tests can be created for DataStage flows using the DataStage user interface.  When DataStage creates a test case it performs the following steps:
 
 1. Inspect your flow design to identify all source and target stages.
 1. Read the metadata definition of each source stage input link and target stage output link (i.e. all data flowing into and out of your flow).  Note that each source stage may be configured with multiple output links, and each target stage may be configured with multiple input links.
@@ -15,7 +15,7 @@ Unit tests can be created for individual jobs using the the DataStage user inter
 
 You can create DataStage test cases either as a new asset or directly from within the DataStage designer canvas.
 
-From the CPD Cluster home page open an existing project or create a new project then, on the **Assets** tab, click ***New Asset** > **Create reusable DataStage components** > **Test case**.
+From the CPD Cluster home page open an existing project or create a new project then, on the **Assets** tab, click **New Asset** > **Create reusable DataStage components** > **Test case**.
 
 To edit a test case from the DataStage canvas, go to an existing or new flow and click the **Test cases** icon to open up the test cases panel. Click **New test case**.
 

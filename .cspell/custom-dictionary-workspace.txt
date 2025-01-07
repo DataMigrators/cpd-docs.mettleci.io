@@ -2,3 +2,5 @@
 intg
 mettleci
 subflow
+TINYINT
+VARCHAR

@@ -1,20 +1,17 @@
 # Test Cases with local and shared containers
 
-Page numberingPage numberingScroll page detailsScroll page detailsScroll ViewportScroll Viewport
-The structure of a MettleCI Unit Test Specification (“Spec”) is modelled loosely on the Gherkin syntax of a testing tool called Cucumber.  It associates Unit Test data, which are stored in CSV files identified by the path property, with each of your Job’s input and output links, which are identified by the stage and link properties of your Spec. The Given clause defines the Unit Test data for your Job’s input links and the Then clause for the output links.  
-
-Here's a simple example:
+Let's take a simple example of a DataStage test case:
 
 ![representation of a DataStage job showing CSV files being injected into source stages and an output stage referring to a CSV file which does not exist](./images/ds-test-case-simple2.png "test baseline screen capture")
 
 Containers (both local and shared) complicate this situation as stage names in DataStage are only unique within a given flow or container.  
 
-Consider writing a test specification for the following Job `ProcessAccounts` which includes a shared container stage `ContainerC1` which is a reference to the shared container `scWriteAccounts`:
+Consider writing a test specification for the following flow, `ProcessAccounts`, which includes a shared container stage `ContainerC1` which is itself a reference to the shared container `scWriteAccounts`:
 
-Flow:
+Flow `ProcessAccounts`:
 ![representation of a DataStage flow using a shared container](./images/ds-test-case-container2.png "test cases using containers")
 
-Container:
+Container `scWriteAccounts`:
 ![representation of a DataStage shared container](./images/ds-test-case-container5.png "test cases using containers") |
 
 You might be tempted to create a spec like this ...

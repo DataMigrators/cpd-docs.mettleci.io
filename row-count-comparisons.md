@@ -17,6 +17,6 @@ You can configure a DataStage test case to only compare outputs' row counts, rat
 
 **Note** that the `checkRowCountOnly` property takes a boolean value which does not use quotes.
 
-The [test case report](verifying-test-results.md) containing a single cell comparing the expected and actual output row count (of the form 'Expected > Actual'.)
+The [test case report](verifying-test-results.md) containing a single cell comparing the expected and actual output row count (of the form `Expected->Actual`.)
 
 ![rowcount comparison](./images/ds-test-rowcount-diff.png "rowcount diff")

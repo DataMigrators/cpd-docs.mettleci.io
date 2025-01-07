@@ -31,15 +31,15 @@ A difference report will be available for each failed test - i.e. each test wher
 
 ## The difference report
 
-Every DataStage test case involved the comparison of at least one **Actual** result set, produced by your Flow, and an associated **Expected** result set, defined by your test case. The differences in these result sets is expressed in a tabular form which describe, using indicators in row headers, column headers, or cells, the operations that would be required to modify the **Expected** data to match the **Actual** data. 
+Every DataStage test case involved the comparison of at least one **Actual** result set, produced by your Flow, and an associated **Expected** result set, defined by your test case. The differences in these result sets is expressed in a tabular form which describe, using indicators in row headers, column headers, or cells, the operations that would be required to modify the **Expected** data to match the **Actual** data.
 
 Taking the example test report above:
 
 | Change type             | Indicator | Example |
 |-------------------------|-----------|---------|
 | Inserted rows           | ![inserted row](./images/diff-row-insert.svg "inserted row header icon") | An additional, unexpected row (for customer 'Ardith Beahan') is present |
-| Deleted rows            | ![deleted row](./images/diff-row-delete.svg "deleted row header icon") | The expected row (for 'Doc Brown') is missing |
+| Deleted rows            | ![deleted row](./images/diff-row-delete.svg "deleted row header icon") | The expected row (for customer 'Doc Brown') is missing |
 | Inserted columns        | ![deleted column](./images/diff-column-insert.svg "deleted column header icon") | An additional, unexpected INTEGER column **CENTS** was produced |
 | Deleted columns         | ![deleted column](./images/diff-column-delete.svg "delete column header icon") | The expected TINYINT column **MEMBERSHIP** was not found |
 | Modified column metadata | Additional header row | A VARCHAR column was renamed from `FIRST_NAME` to `FirstName` as indicated by an additional header row |
-| Modified cell values     | ![cell modified](./images/diff-difference.svg "cell modified indicator")        | A modified value (33298->33262) in the **DOLLARS** columns for person 'Josianne Mante'|
+| Modified cell values     | ![cell modified](./images/diff-difference.svg "cell modified indicator")        | A modified value (of the form `Expected->Actual`) in the **DOLLARS** columns for person 'Josianne Mante'|

@@ -1,6 +1,6 @@
 # Capturing test data
 
-Each DataStage development team will already have a set of test data that they use to verify their flow's correct operation.  DataStage enables you to capture that data (regardless of whatever technology is currently used to supply it) and encapsulate it into a commonly managed, well governed artefact which can travel with your job to repeatedly assert its consistent behavior in any downstream environment.  This existing test data can be captured by DataStage by running a flow in 'Data Interception' mode.
+Each DataStage development team will already have a set of test data that they use to verify their flow's correct operation.  DataStage enables you to capture that data (regardless of whatever technology is currently used to supply it) and encapsulate it into a commonly managed, well governed artefact which can travel with your flow to repeatedly assert its consistent behavior in any downstream environment.  This existing test data can be captured by DataStage by running a flow in 'Data Interception' mode.
 
 ![screen capture](./images/ds-test-case-capture.png "test screen capture")
 
