@@ -8,7 +8,6 @@ Unit tests can be created for DataStage flows using the DataStage user interface
 1. Interrogate your flow's parameters.
 1. Create a test case specification which provides references to all of your flow's parameters as well as each newly-created test data file.
 
-&nbsp;
 ![screen capture](./images/ds-test-case-generate-csv.png "test screen capture")
 
 ## Process

@@ -1,4 +1,5 @@
 # Custom Dictionary Words
+Baselining
 intg
 mettleci
 subflow
