@@ -4,7 +4,7 @@
 
 Start by creating a connection to a storage volume where test assets will be stored.
 
-1. From the CPD Cluster home page open an existing project or create a new project then, on the **Assets** tab, click ***New Asset** > **Connect to a data source**.
+1. From the CPD Cluster home page open an existing project or create a new project then, on the **Assets** tab, click **New Asset** > **Connect to a data source**.
 1. On the resulting page select **Storage volume** and **Next**.
 1. On the **Create connection: Storage volume** page give your new connection a name and optional description.
 1. Select an available storage volume. If you don't already have an storage volume available ...
