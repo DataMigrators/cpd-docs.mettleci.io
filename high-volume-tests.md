@@ -1,6 +1,6 @@
 # High Volume DataStage Tests
 
-During the execution of a DataStage test case the data produced by a job (on one or more output links) is compared against expected test data to identify and report on any differences.  When testing with large volumes of data, the comparison process may consume too much memory and cause your test job to abort with a fatal error.  The simplest approach to resolving this issue is to reduce your test data volume to the smallest number of records necessary to exercise each code path through your flow.  Doing so will ensure that your test cases execute quickly and can be easily understood and maintained.
+During the execution of a DataStage® test case the data produced by a job (on one or more output links) is compared against expected test data to identify and report on any differences.  When testing with large volumes of data, the comparison process may consume too much memory and cause your test job to abort with a fatal error.  The simplest approach to resolving this issue is to reduce your test data volume to the smallest number of records necessary to exercise each code path through your flow.  Doing so will ensure that your test cases execute quickly and can be easily understood and maintained.
 
 In the event that test data available to you cannot easily be reduced, the memory required by the data comparison process can be reduced by specifying a **Cluster Key** in the test specification.
 

@@ -1,6 +1,6 @@
 # Recapture a test result baseline
 
-As the logic of your flow changes, so the test data files representing your desired output will also need to change.  DataStage can automatically re-baseline your expected output based on an execution of your DataStage job.  Note that while this process is similar to the process described in [Capturing test data](capturing-test-data.md) this process differs in that it only captures the **output(s)** of your job.
+As the logic of your flow changes, so the test data files representing your desired output will also need to change.  DataStage® can automatically re-baseline your expected output based on an execution of your DataStage job.  Note that while this process is similar to the process described in [Capturing test data](capturing-test-data.md) this process differs in that it only captures the **output(s)** of your job.
 
 ![representation of a DataStage flow showing CSV files being injected into source stages and an output stage referring to a CSV file which does not exist](./images/ds-test-case-baseline-output.png "test baseline screen capture")
 

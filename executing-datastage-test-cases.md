@@ -1,6 +1,6 @@
 # Executing a DataStage test case
 
-You can execute DataStage test cases either from the CPD Cluster home page, the DataStage designer canvas, or the DataStage test case editor.
+You can execute DataStage® test cases either from the CPD Cluster home page, the DataStage designer canvas, or the DataStage test case editor.
 
 ## From the CPD Cluster home page
 

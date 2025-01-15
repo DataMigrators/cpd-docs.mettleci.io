@@ -1,6 +1,6 @@
 # cpd-docs.mettleci.io
 
-The following markdown pages constitue MettleCI-related CP4D documentation created by Data Migrators
+The following markdown pages constitute MettleCI-related CP4D documentation created by Data Migrators
 
 * [Testing DataStage flows](testing-datastage-flows.md)
   * [Configuring test data storage](configuring-test-data-storage.md)

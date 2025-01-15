@@ -1,6 +1,6 @@
 # Verifying test results
 
-You can verify DataStage test results either from the CPD Cluster home page, the DataStage designer canvas, or the DataStage test case editor.
+You can verify DataStage® test results either from the CPD Cluster home page, the DataStage designer canvas, or the DataStage test case editor.
 
 ## From the CPD Cluster home page
 

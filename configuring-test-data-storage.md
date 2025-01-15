@@ -20,7 +20,7 @@ For more details see [Adding connections to data sources in a project](https://d
 
 ## Add the connection to your project settings
 
-Now you'll configure DataStage to use your storage volume for storing test case assets.
+Now you'll configure DataStage® to use your storage volume for storing test case assets.
 
 1. From the CPD Cluster home page select the **Manage** tab then, under **Tools**, select **DataStage** and then select the tab **Test cases**.
 1. For **Test data connection type** select **Storage Volume**.

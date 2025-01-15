@@ -1,6 +1,6 @@
 # Creating a DataStage test case
 
-Unit tests can be created for DataStage flows using the DataStage user interface.  When DataStage creates a test case it performs the following steps:
+Unit tests can be created for DataStage® flows using the DataStage user interface.  When DataStage creates a test case it performs the following steps:
 
 1. Inspect your flow design to identify all source and target stages.
 1. Read the metadata definition of each source stage input link and target stage output link (i.e. all data flowing into and out of your flow).  Note that each source stage may be configured with multiple output links, and each target stage may be configured with multiple input links.
